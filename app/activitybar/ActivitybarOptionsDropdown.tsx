@@ -15,8 +15,6 @@ import type { SidebarType } from '@bangle.io/extension-registry';
 import type { SerialOperationKeybindingMapping } from '@bangle.io/shared-types';
 import { nsmUI, nsmUISlice } from '@bangle.io/slice-ui';
 import {
-  BangleIcon,
-  DiscordIcon,
   DotsVerticalIcon,
   DropdownMenu,
   GiftIcon,
@@ -24,7 +22,6 @@ import {
   MenuSection,
   PrettyKeybinding,
   SettingsIcon,
-  TwitterIcon,
 } from '@bangle.io/ui-components';
 
 import { ButtonStyleOBj } from './common';

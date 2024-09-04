@@ -4,8 +4,9 @@ import { AiContainer } from '@bangle.io/ai';
 import type { NoteSidebarWidget } from '@bangle.io/shared-types';
 import {
   Button,
+  ChevronDownIcon,
   ChevronRightIcon,
-  FileDocumentIcon,
+  ChevronUpIcon,
 } from '@bangle.io/ui-components';
 
 export function NoteSidebar({
@@ -15,10 +16,16 @@ export function NoteSidebar({
   onDismiss: () => void;
   widgets: NoteSidebarWidget[];
 }) {
-  const [hasGpu] = React.useState(!!navigator.gpu);
+  const [hasGpu]: [boolean] = React.useState(!!navigator.gpu);
+  const [isAiReload, setIsAiReload]: [boolean, (isReload: boolean) => void] =
+    React.useState(false);
+  const [isAiFullscreen, setIsAiFullscreen]: [
+    boolean,
+    (isReload: boolean) => void,
+  ] = React.useState(false);
 
   return (
-    <div className="flex flex-col flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued">
+    <div className="flex flex-col flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued relative">
       <div className="flex flex-row justify-between px-2 mt-2">
         <span className="font-bold self-center">Дополнения</span>
         <span>
@@ -48,16 +55,38 @@ export function NoteSidebar({
       </div>
 
       {hasGpu && (
-        <div className="flex flex-col h-full">
+        <div
+          className={`flex flex-col${
+            isAiFullscreen
+              ? ' w-full absolute top-10 bottom-0 left-0 z-10 bg-colorBgLayerBottom'
+              : ' h-full'
+          }`}
+        >
           <div className="flex flex-row justify-between px-2 mt-2">
-            <span className="font-bold self-center">ИИ-компаньон</span>
-            <span>
-              <FileDocumentIcon style={{ width: '1em', height: '1em' }} />
+            <span className="font-bold self-center">ИИ-ассистент</span>
+            <span className="flex flex-row">
+              <Button
+                size="xs"
+                variant="soft"
+                ariaLabel={isAiFullscreen ? 'exit-fullscreen' : 'fullscreen'}
+                onPress={() => setIsAiFullscreen(!isAiFullscreen)}
+                leftIcon={
+                  isAiFullscreen ? <ChevronDownIcon /> : <ChevronUpIcon />
+                }
+              />
+              <Button
+                size="xs"
+                variant="soft"
+                text="очистить"
+                onPress={async () => {
+                  setIsAiReload(true);
+                  await new Promise((resolve) => setTimeout(resolve, 10));
+                  setIsAiReload(false);
+                }}
+              />
             </span>
           </div>
-          <div className="h-full">
-            <AiContainer />
-          </div>
+          <div className="h-full">{!isAiReload && <AiContainer />}</div>
         </div>
       )}
     </div>

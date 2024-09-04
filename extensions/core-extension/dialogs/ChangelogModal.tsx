@@ -118,7 +118,9 @@ function ChangelogDisplay() {
 
 function getTopHeading(): string | undefined {
   const markdown = getMarkdown();
-  const topHeading = markdown.split('\n').find((r) => r.startsWith('#'));
+  const topHeading = markdown
+    .split('\n')
+    .find((r: string) => r.startsWith('#'));
 
   return topHeading;
 }

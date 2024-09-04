@@ -82,9 +82,7 @@ export function Activitybar() {
         variant="transparent"
         tone="secondary"
         size="lg"
-        leftIcon={
-          <SingleCharIcon char={wsName?.[0]?.toLocaleUpperCase() || 'H'} />
-        }
+        leftIcon={<SingleCharIcon char={wsName?.toLocaleUpperCase() || 'Д'} />}
       />
 
       {sideBarComponents}

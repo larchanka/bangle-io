@@ -33,6 +33,7 @@
     "@bangle.io/slice-page": "workspace:*",
     "@bangle.io/ui-components": "workspace:*",
     "@bangle.io/workspace-info": "workspace:*",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-markdown": "^9.0.1",
     "tslib": "2.6.0",
     "typescript": "5.1.6"
@@ -45,6 +46,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^7.0.2",
     "@types/react": "^17.0.49",
+    "@types/react-copy-to-clipboard": "^5",
     "@types/react-dom": "^17.0.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

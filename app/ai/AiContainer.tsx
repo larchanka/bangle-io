@@ -5,12 +5,29 @@ import type {
 } from '@mlc-ai/web-llm';
 import { CreateMLCEngine } from '@mlc-ai/web-llm';
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Markdown from 'react-markdown';
 
 import { useNsmSliceState } from '@bangle.io/bangle-store-context';
 import { nsmSliceWorkspace } from '@bangle.io/nsm-slice-workspace';
-import { Button, ChevronRightIcon } from '@bangle.io/ui-components';
+import {
+  Button,
+  ChevronRightIcon,
+  CopyIcon,
+  ExclamationIcon,
+  SpinnerIcon,
+} from '@bangle.io/ui-components';
 import { fs } from '@bangle.io/workspace-info';
+
+const isPowerfullPc = navigator?.deviceMemory >= 4;
+
+const selectedModel = isPowerfullPc
+  ? 'Qwen2-1.5B-Instruct-q4f32_1-MLC'
+  : 'Qwen2-0.5B-Instruct-q4f32_1-MLC';
+// Phi-3.5-mini-instruct-q4f16_1-MLC-1k
+// TinyLlama-1.1B-Chat-v0.4-q4f16_1-MLC-1k
+// RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC
+// Qwen2-0.5B-Instruct-q4f16_1-MLC
 
 const Div = ({ ...props }: React.ComponentProps<'div'>) => <div {...props} />;
 const Form = ({ ...props }: React.ComponentProps<'form'>) => (
@@ -19,8 +36,8 @@ const Form = ({ ...props }: React.ComponentProps<'form'>) => (
 const Progress = ({ ...props }: React.ComponentProps<'progress'>) => (
   <progress {...props} />
 );
-const Textarea = ({ ...props }: React.ComponentProps<'textarea'>) => (
-  <textarea {...props} />
+const Textarea = ({ reff, ...props }: React.ComponentProps<'textarea'>) => (
+  <textarea ref={reff} {...props} />
 );
 const Button2 = ({ ...props }: React.ComponentProps<'button'>) => (
   <button {...props} />
@@ -31,11 +48,14 @@ export function AiContainer() {
     window.localStorage.getItem('aiEnabled') === 'true',
   );
   const [isChatDisabled, setIsChatDisabled] = React.useState(true);
+  const [isRequesting, setIsRequesting] = React.useState(false);
   const [requestValue, setRequestValue] = React.useState('');
   const [chatHistory, setChatHistory] = React.useState<
     ChatCompletionMessageParam[]
   >([]);
   const { primaryWsPath } = useNsmSliceState(nsmSliceWorkspace);
+  const textareaRef = React.useRef(null);
+
   React.useEffect(() => {
     if (isEnabled && primaryWsPath) {
       async function startAiAssistant() {
@@ -52,6 +72,17 @@ export function AiContainer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEnabled, primaryWsPath]);
 
+  React.useEffect(() => {
+    console.log(222, textareaRef.current);
+
+    if (textareaRef.current) {
+      // This will auto-resize the textarea whenever the content changes
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height =
+        textareaRef?.current?.scrollHeight + 'px';
+    }
+  }, [requestValue, textareaRef]);
+
   const setIsEnabledLocal = () => {
     window.localStorage.setItem('aiEnabled', isEnabled ? 'false' : 'true');
     setIsEnabled(!isEnabled);
@@ -60,10 +91,14 @@ export function AiContainer() {
   async function setupAi(context = '...', reset = false) {
     const localChatHistory = [
       {
-        role: 'user',
-        content:
-          'Ты помогаешь пользователю. Отвечай кратко, если не укзано иное. Отвечай в markdown-формате. Контекст: ' +
-          context,
+        role: 'system',
+        content: `
+          Ты – ассистент, который помогает пользователю генерировать тексты на русском языке, если не указан иной язык.
+          Отвечай кратко в одном-двух предложениях, если не указано иное.
+          Отвечай в markdown-формате, если не указано иное.
+          Не повторяй контекст.
+          Контекст: ${context}
+          `,
       },
     ];
 
@@ -72,8 +107,6 @@ export function AiContainer() {
     }
 
     const progressBar = document.querySelector('progress');
-
-    const selectedModel = 'Phi-3.5-mini-instruct-q4f16_1-MLC-1k'; // 'Phi-3.5-mini-instruct-q4f16_1-MLC-1k' "TinyLlama-1.1B-Chat-v0.4-q4f16_1-MLC-1k" "RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC"
 
     const enableChat = () => {
       setIsChatDisabled(false);
@@ -90,16 +123,27 @@ export function AiContainer() {
       }
     };
 
-    const engine: MLCEngineInterface = await CreateMLCEngine(selectedModel, {
-      initProgressCallback: initProgressCallback,
-    });
+    const engine: MLCEngineInterface = await CreateMLCEngine(
+      selectedModel,
+      {
+        initProgressCallback: initProgressCallback,
+      },
+      {
+        vocab_size: 10000,
+        repetition_penalty: 0.8,
+        frequency_penalty: 0.4,
+        presence_penalty: 0.4,
+        top_p: 0.95,
+        temperature: 0.9,
+      },
+    );
 
     window.submitRequest = (val: string): void => {
       startEngine(val);
     };
 
     async function startEngine(message: string) {
-      setIsChatDisabled(true);
+      setIsRequesting(true);
       let curMessage = '';
       let index = 0;
       localChatHistory.push({ role: 'user', content: message });
@@ -119,15 +163,10 @@ export function AiContainer() {
           curMessage += curDelta;
         }
 
-        if (index % 5 === 0) {
+        if (index % 2 === 0) {
           tmpChatHistory.pop();
           tmpChatHistory.push({ role: 'assistant', content: curMessage });
           setChatHistory(tmpChatHistory);
-          const aiChatDiv = document.getElementById('ai-chat');
-
-          if (aiChatDiv) {
-            aiChatDiv.scrollTop = aiChatDiv.scrollHeight;
-          }
         }
         index++;
       }
@@ -140,12 +179,12 @@ export function AiContainer() {
       if (aiChatDiv) {
         aiChatDiv.scrollTop = aiChatDiv.scrollHeight;
       }
-      setIsChatDisabled(false);
+      setIsRequesting(false);
     }
   }
 
   const handleSubmit = (e: Event) => {
-    e.preventDefault();
+    e?.preventDefault();
 
     if (!requestValue) {
       return;
@@ -153,13 +192,19 @@ export function AiContainer() {
     window.submitRequest(requestValue);
   };
 
+  function submitOnEnter(event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+      event.preventDefault();
+      handleSubmit(event);
+    }
+  }
+
   if (!isEnabled) {
     return (
       <Div className="flex flex-col flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued p-2">
         <Button
           ariaLabel="Включить"
           size="sm"
-          variant="soft"
           style={{
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0,
@@ -167,14 +212,51 @@ export function AiContainer() {
           text="Включить"
           onPress={setIsEnabledLocal}
         />
+        <Div
+          className="mt-4"
+          style={{ fontSize: 'var(--BV-typographyTextSmSize)' }}
+        >
+          <Div
+            className="flex gap-2 items-center mb-2"
+            style={{
+              fontWeight: 600,
+              color: 'var(--BV-colorCriticalSolidStronger)',
+              fontSize: 'var(--BV-typographyTextMdSize)',
+            }}
+          >
+            <ExclamationIcon className="w-4 h-4" />
+            Локальная модель
+          </Div>
+          <Div className="p-1">
+            Это локальная модель, работающая в вашем браузере. Она может не
+            знать или неправильно интерпретировать некоторые вещи. Поэтому,
+            пожалуйста, проверяйте информацию, полученную от нее, и не
+            полагайтесь на нее слепо.
+          </Div>
+        </Div>
       </Div>
     );
   }
 
   return (
-    <Div className="h-full flex flex-col">
+    <Div className="h-full flex flex-col relative">
+      {!isChatDisabled && (
+        <Div
+          className="top-0 left-0 p-2"
+          style={{
+            fontSize: 'var(--BV-typographyTextXsSize)',
+          }}
+        >
+          Модель: {selectedModel.split('-').splice(0, 3).join(' ')}
+        </Div>
+      )}
       <Div className="p-2">
-        <Progress className="w-full" id="progress" value={0} />
+        <Progress
+          className="w-full"
+          title={selectedModel}
+          id="progress"
+          value={0}
+        />
       </Div>
       <Div
         className="flex flex-col flex-grow h-dvh overflow-hidden"
@@ -188,13 +270,28 @@ export function AiContainer() {
             (message: ChatCompletionMessageParam, index: number) =>
               index > 0 ? (
                 <Div
-                  className={`ai-message-content ${
+                  className={`markdown ai-message-content ${
                     message.role === 'user'
-                      ? 'color-colorTextDisabled pl-4'
+                      ? 'opacity-50 pl-4'
                       : 'color-colorText w-full'
                   } mt-2`}
                   key={`k-${index}`}
                 >
+                  {message.role === 'assistant' && (
+                    <Div
+                      className="float-right mt-2 z-10 relative"
+                      title="Копировать ответ"
+                    >
+                      <CopyToClipboard
+                        text={message.content}
+                        options={{ format: 'text/plain' }}
+                      >
+                        <Div className="text-base active:bg-colorNeutralBgLayerTop h-9 smallscreen:h-10 min-w-10 px-3  select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer ">
+                          <CopyIcon style={{ width: 16, height: 16 }} />
+                        </Div>
+                      </CopyToClipboard>
+                    </Div>
+                  )}
                   <Markdown>{message.content}</Markdown>
                 </Div>
               ) : null,
@@ -202,23 +299,34 @@ export function AiContainer() {
         </Div>
       </Div>
       <Form onSubmit={handleSubmit}>
-        <Div className="flex flex-row items-end flex-growtext-colorNeutralTextSubdued p-2">
+        <Div className="flex flex-row items-end flex-growtext-colorNeutralTextSubdued p-2 relative">
+          {isRequesting && (
+            <Div className="absolute top-0 left-0 w-full h-full z-10 flex justify-center items-center opacity-50">
+              <SpinnerIcon width="2rem" height="2rem" />
+            </Div>
+          )}
           <Textarea
-            disabled={isChatDisabled}
+            disabled={isChatDisabled || isRequesting}
             className="block p-2.5 w-full rounded-lg resize-none"
             maxLength={200}
-            style={{ 'color': 'black', 'border-bottom-right-radius': '0' }}
+            style={{
+              color: 'black',
+              borderBottomRightRadius: '0',
+              height: 'auto',
+            }}
             value={requestValue}
             onChange={(e: InputEvent) => setRequestValue(e.target?.value)}
             placeholder="Введите запрос"
+            onKeyDown={submitOnEnter}
+            reff={textareaRef}
           />
           <Button2
             className="font-600 h-8 min-w-8 px-2 select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer bg-colorBgLayerFloat hover:bg-colorNeutralBgLayerTop disabled:bg-colorNeutralBgLayerBottom"
-            disabled={isChatDisabled}
-            ariaLabel="Отправить запрос"
+            disabled={isChatDisabled || isRequesting}
+            aria-label="Отправить запрос"
             style={{
-              'border-bottom-left-radius': 0,
-              'border-top-left-radius': 0,
+              borderBottomLeftRadius: 0,
+              borderTopLeftRadius: 0,
             }}
             role="submit"
           >

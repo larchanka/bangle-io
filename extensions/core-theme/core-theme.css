@@ -67,7 +67,7 @@ body {
   --BV-space1_5: 0.375rem;
   --BV-space2_5: 0.625rem;
   --BV-spacePx: 1px;
-  --BV-typographyFontFamilySans: ui-sans-serif, system-ui, -apple-system,
+  --BV-typographyFontFamilySans: system-ui, -apple-system, ui-sans-serif,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
