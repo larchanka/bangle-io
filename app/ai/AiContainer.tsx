@@ -207,14 +207,19 @@ export function AiContainer() {
             disabled={isChatDisabled}
             className="block p-2.5 w-full rounded-lg resize-none"
             maxLength={200}
-            style={{ color: 'black' }}
+            style={{ 'color': 'black', 'border-bottom-right-radius': '0' }}
             value={requestValue}
             onChange={(e: InputEvent) => setRequestValue(e.target?.value)}
+            placeholder="Введите запрос"
           />
           <Button2
-            className="note-outline_first-node-in-viewport text-sm font-600 h-8 min-w-8 px-2 select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer "
+            className="font-600 h-8 min-w-8 px-2 select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer bg-colorBgLayerFloat hover:bg-colorNeutralBgLayerTop disabled:bg-colorNeutralBgLayerBottom"
             disabled={isChatDisabled}
             ariaLabel="Отправить запрос"
+            style={{
+              'border-bottom-left-radius': 0,
+              'border-top-left-radius': 0,
+            }}
             role="submit"
           >
             <ChevronRightIcon />
