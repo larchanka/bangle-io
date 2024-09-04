@@ -82,7 +82,7 @@ function getFavicon(appEnv) {
 }
 
 module.exports = ({
-  isProduction = false,
+  isProduction = true,
   isVite = false,
   isStorybook = false,
 }) => {

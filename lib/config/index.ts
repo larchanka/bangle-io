@@ -14,7 +14,7 @@ export type { FinalConfig } from '@bangle.io/config-template';
 // appEnv can be one of the following only `production`, `staging`,
 // `local` , `dev/*` where * is the branch name
 export const APP_ENV: string = config.build.appEnv;
-export const IS_PRODUCTION_APP_ENV = APP_ENV === 'production';
+export const IS_PRODUCTION_APP_ENV = true;
 export const RELEASE_VERSION: string = config.build.releaseVersion;
 export const RELEASE_ID: string = config.build.releaseId;
 // a less intimidating thing that is shown in the UI

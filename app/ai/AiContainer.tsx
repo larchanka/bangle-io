@@ -13,6 +13,7 @@ import { nsmSliceWorkspace } from '@bangle.io/nsm-slice-workspace';
 import {
   Button,
   ChevronRightIcon,
+  CloseIcon,
   CopyIcon,
   ExclamationIcon,
   SpinnerIcon,
@@ -47,7 +48,7 @@ export function AiContainer() {
   const [isEnabled, setIsEnabled] = React.useState(
     window.localStorage.getItem('aiEnabled') === 'true',
   );
-  const [isChatDisabled, setIsChatDisabled] = React.useState(true);
+  const [isChatDisabled, setIsChatEnabled] = React.useState(true);
   const [isRequesting, setIsRequesting] = React.useState(false);
   const [requestValue, setRequestValue] = React.useState('');
   const [chatHistory, setChatHistory] = React.useState<
@@ -109,7 +110,7 @@ export function AiContainer() {
     const progressBar = document.querySelector('progress');
 
     const enableChat = () => {
-      setIsChatDisabled(false);
+      setIsChatEnabled(false);
     };
 
     const initProgressCallback = (report: InitProgressReport) => {
@@ -118,7 +119,7 @@ export function AiContainer() {
       }
 
       if (report.progress >= 1) {
-        progressBar?.remove();
+        progressBar?.parentNode?.classList.add('hidden');
         enableChat();
       }
     };
@@ -199,6 +200,10 @@ export function AiContainer() {
     }
   }
 
+  function disableAiHandler() {
+    setIsEnabledLocal();
+  }
+
   if (!isEnabled) {
     return (
       <Div className="flex flex-col flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued p-2">
@@ -242,12 +247,19 @@ export function AiContainer() {
     <Div className="h-full flex flex-col relative">
       {!isChatDisabled && (
         <Div
-          className="top-0 left-0 p-2"
+          className="top-0 left-0 p-2 flex items-center justify-between"
           style={{
             fontSize: 'var(--BV-typographyTextXsSize)',
           }}
         >
-          Модель: {selectedModel.split('-').splice(0, 3).join(' ')}
+          <Div>Модель: {selectedModel.split('-').splice(0, 3).join(' ')}</Div>
+          <Button
+            size="xs"
+            variant="soft"
+            ariaLabel="disable-ai"
+            onPress={disableAiHandler}
+            leftIcon={<CloseIcon />}
+          />
         </Div>
       )}
       <Div className="p-2">

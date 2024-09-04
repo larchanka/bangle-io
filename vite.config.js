@@ -75,9 +75,7 @@ export default defineConfig(async ({ command, mode }) => {
       VitePWA({
         minify: false,
         includeAssets: [
-          'favicon.svg',
-          'favicon-dev.svg',
-          'favicon-staging.svg',
+          '.htaccess',
           'favicon.ico',
           'favicon-dev.ico',
           'favicon-staging.ico',
