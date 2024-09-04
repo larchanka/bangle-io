@@ -46,9 +46,9 @@ export function useEditorItems() {
     () => [
       PaletteItem.create({
         uid: 'paraBelow',
-        title: 'Insert paragraph below ⤵️',
+        title: 'Вставить параграф ниже ⤵️',
         group: 'editor',
-        description: 'Inserts a new paragraph below this block',
+        description: 'Добавляет параграф ниже текущего блока',
         // TODO current just disabling it, but we need to implement this method for lists
         disabled: (state: any) => {
           return isList()(state);
@@ -74,9 +74,9 @@ export function useEditorItems() {
 
       PaletteItem.create({
         uid: 'paraAbove',
-        title: 'Insert paragraph above ⤴️',
+        title: 'Вставить параграф выше ⤴️',
         group: 'editor',
-        description: 'Inserts a new paragraph above this block',
+        description: 'Добавляет параграф выше текущего блока',
         disabled: (state: any) => {
           return isList()(state);
         },
@@ -101,9 +101,9 @@ export function useEditorItems() {
 
       PaletteItem.create({
         uid: 'paraConvert',
-        title: 'Paragraph',
+        title: 'Параграф',
         group: 'editor',
-        description: 'Convert the current block to paragraph',
+        description: 'Конвертирует текущий блок в параграф',
         editorExecuteCommand: () => {
           return (
             state: EditorState,
@@ -144,10 +144,10 @@ export function useEditorItems() {
 
       PaletteItem.create({
         uid: 'bulletListConvert',
-        title: 'Bullet List',
+        title: 'Список',
         group: 'editor',
         keywords: ['unordered', 'lists'],
-        description: 'Convert the current block to bullet list',
+        description: 'Конвертирует блок в список',
         editorExecuteCommand: () => {
           return (
             state: EditorState,
@@ -169,10 +169,10 @@ export function useEditorItems() {
 
       PaletteItem.create({
         uid: 'todoListConvert',
-        title: 'Todo List',
+        title: 'Туду лист',
         group: 'editor',
         keywords: ['todo', 'lists', 'checkbox', 'checked'],
-        description: 'Convert the current block to todo list',
+        description: 'Конвертирует блок в Туду лист',
         editorExecuteCommand: () => {
           return (
             state: EditorState,
@@ -195,9 +195,9 @@ export function useEditorItems() {
       PaletteItem.create({
         uid: 'orderedListConvert',
         group: 'editor',
-        title: 'Ordered List',
+        title: 'Нумерованный список',
         keywords: ['numbered', 'lists'],
-        description: 'Convert the current block to ordered list',
+        description: 'Конвертирует блок в нумерованный список',
         editorExecuteCommand: () => {
           return (
             state: EditorState,
@@ -220,9 +220,9 @@ export function useEditorItems() {
       PaletteItem.create({
         uid: 'insertSiblingListAbove',
         group: 'editor',
-        title: 'Insert List above ⤴️',
+        title: 'Добавить в список выше ⤴️',
         keywords: ['insert', 'above', 'lists'],
-        description: 'Insert a list item above the current list item',
+        description: 'Добавляет новый элемент в список выше текущего',
         disabled: (state: any) => {
           return !isList()(state);
         },
@@ -248,9 +248,9 @@ export function useEditorItems() {
       PaletteItem.create({
         uid: 'insertSiblingListBelow',
         group: 'editor',
-        title: 'Insert List below ⤵️',
+        title: 'Добавить в список ниже ⤵️',
         keywords: ['insert', 'below', 'lists'],
-        description: 'Insert a list item below the current list item',
+        description: 'Добавляет новый элемент в список ниже текущего',
         disabled: (state: any) => {
           return !isList()(state);
         },
@@ -282,7 +282,7 @@ export function useEditorItems() {
           uid: 'headingConvert' + level,
           title: 'H' + level,
           group: 'editor',
-          description: 'Convert the current block to heading level ' + level,
+          description: 'Конвертирует текущий блок в заголовок уровня ' + level,
           disabled: (state: any) => {
             const result = isList()(state);
 

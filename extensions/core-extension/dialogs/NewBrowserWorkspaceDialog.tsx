@@ -81,13 +81,13 @@ export const NewBrowserWorkspaceDialog: DialogComponentType = ({
   return (
     <Dialog
       isDismissable
-      headingTitle="New Browser Workspace"
+      headingTitle="Новое пространство в браузере"
       onDismiss={onDismiss}
       size="md"
       primaryButtonConfig={{
         disabled: !modalState.workspace,
         onPress: createWorkspace,
-        text: 'Create workspace',
+        text: 'Создать пространство',
       }}
       footer={
         <ExternalLink text="Privacy Policy" href="https://bangle.io/privacy" />
@@ -101,7 +101,7 @@ export const NewBrowserWorkspaceDialog: DialogComponentType = ({
       <div className="flex flex-col mb-5">
         <div className="mb-2">
           <h2 className="text-lg font-medium">
-            Give your workspace a fancy name 👩‍🎨
+            Дайте пространству интересное название 👩‍🎨
           </h2>
         </div>
 

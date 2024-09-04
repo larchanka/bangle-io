@@ -23,7 +23,7 @@ export type CTAConfig = {
 
 export function Dialog({
   children,
-  dismissText = 'Close',
+  dismissText = 'Закрыть',
   headingTitle,
   headingIcon = null,
   footer = null,

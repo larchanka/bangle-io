@@ -12,10 +12,10 @@ export function useSetDocumentTitle() {
   useEffect(() => {
     if (wsName) {
       document.title = primaryWsPath
-        ? `${resolvePath(primaryWsPath).fileName} - bangle.io`
-        : `${wsName} - bangle.io`;
+        ? `${resolvePath(primaryWsPath).fileName} - Дневник`
+        : `${wsName} - Дневник`;
     } else {
-      document.title = 'bangle.io';
+      document.title = 'Дневник';
     }
 
     if (!IS_PRODUCTION_APP_ENV) {

@@ -85,14 +85,14 @@ export const NewWorkspaceModal: DialogComponentType = (props) => {
           }
 
           case WorkspaceType.Help: {
-            throw new Error('Not allowed to create help workspace');
+            throw new Error('Нельзя создать пространство с названием "help"');
 
             return;
           }
 
           default: {
             let val: never = storage;
-            throw new Error('Unknown storage type');
+            throw new Error('Неизветсный тип хранилища');
           }
         }
       }}

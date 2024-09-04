@@ -34,24 +34,24 @@ export function PickWorkspaceType({
   const state = useListState({
     children: [
       <Item
-        aria-label="local file storage"
+        aria-label="локальное файловое хранилище"
         key={WorkspaceType.NativeFS}
-        textValue="local file storage"
+        textValue="локальное файловое хранилище"
       >
         <div>
           <div>
-            <span className="font-bold">Local File Storage</span>
+            <span className="font-bold">Локальное файловое хранилище</span>
             {disabledStorageType.includes(WorkspaceType.NativeFS) ? (
-              <span> (Not available)</span>
+              <span> (Не доступно)</span>
             ) : (
-              <span> (Recommended)</span>
+              <span> (Рекомендовано)</span>
             )}
           </div>
           <div>
             <span className="text-sm text-justify">
-              This option allows you to save notes directly to a folder of your
-              choice. We recommend it as it provides complete data ownership to
-              our users.
+              Этот вариант позволяет сохранять заметки непосредственно в папку
+              по вашему выбору. Мы рекомендуем его, так как он обеспечивает
+              полный контроль над вашими данными.
             </span>
           </div>
         </div>
@@ -61,12 +61,13 @@ export function PickWorkspaceType({
         <Item key={WorkspaceType.Github} textValue="github storage">
           <div>
             <div>
-              <span className="font-bold">GitHub Storage</span>
+              <span className="font-bold">GitHub-хранилище</span>
             </div>
             <div>
               <span className="text-sm text-justify">
-                Allows you to sync your notes with a GitHub repository of your
-                choice. It will keep your notes synced across multiple devices.
+                Позволяете синхронизировать ваши заметки с репозиторием GitHub
+                по вашему выбору. Он будет поддерживать синхронизацию ваших
+                заметок на несколько устройств.
               </span>
             </div>
           </div>
@@ -79,13 +80,13 @@ export function PickWorkspaceType({
       >
         <div>
           <div>
-            <span className="font-bold">Browser Storage</span>
+            <span className="font-bold">Браузерное хранилище</span>
           </div>
           <div>
             <span className="text-sm text-justify">
-              Stores notes in your browser's storage. A good option if you want
-              to try out Bangle. However, you can lose your notes if you clear
-              your browser storage.
+              Хранит заметки в хранилище вашего браузера. Хорошее решение, если
+              вы хотите попробовать Дневник. Однако, вы можете потерять ваши
+              заметки, если очистите хранилище браузера.
             </span>
           </div>
         </div>
@@ -111,23 +112,23 @@ export function PickWorkspaceType({
     <Dialog
       footer={
         <ExternalLink
-          text="Your data stays with you"
+          text="Ваши данные остаются с вами"
           href="https://bangle.io/privacy"
         />
       }
       isDismissable
-      headingTitle="Choose a storage type"
+      headingTitle="Выберите тип хранилища"
       onDismiss={onDismiss}
       size="md"
       primaryButtonConfig={{
-        text: 'Next',
+        text: 'Далее',
         onPress: () => {
           onSelect(selectedKey);
         },
       }}
     >
       <ListBox
-        label="Choose a storage type"
+        label="Выберите тип хранилища"
         state={state}
         optionComponent={Option}
         className="B-core-extension_pick-workspace-storage"

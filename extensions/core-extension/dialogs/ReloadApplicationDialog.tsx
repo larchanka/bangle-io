@@ -13,16 +13,16 @@ export function ReloadApplicationDialog() {
     <Dialog
       onDismiss={onDismiss}
       primaryButtonConfig={{
-        text: 'Reload',
+        text: 'Перезагрузить',
         onPress: () => {
           window.location.reload();
         },
       }}
       size="md"
       isDismissable={true}
-      headingTitle="Reload Application"
+      headingTitle="Перезагрузить Приложение"
     >
-      Are you sure you want to reload the application?
+      Вы уверены, что хотите перезагрузить приложение?
     </Dialog>
   );
 }

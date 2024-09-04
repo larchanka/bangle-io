@@ -39,12 +39,12 @@ export function NewNoteInputModal() {
         inputValue.endsWith('/') ||
         inputValue.endsWith('/.md')
       ) {
-        updateError(new Error('Must provide a note name'));
+        updateError(new Error('Введите название заметки'));
 
         return;
       }
       if (!wsName) {
-        updateError(new Error('No workspace open'));
+        updateError(new Error('Пространство не открыто'));
 
         return;
       }
@@ -82,7 +82,7 @@ export function NewNoteInputModal() {
 
   return (
     <InputPalette
-      placeholder="Enter the name of your note"
+      placeholder="Введите название заметки"
       onExecute={onExecute}
       onDismiss={onDismiss}
       updateError={updateError}
@@ -93,7 +93,7 @@ export function NewNoteInputModal() {
     >
       <UniversalPalette.PaletteInfo>
         <UniversalPalette.PaletteInfoItem>
-          You are providing a name for your note
+          Вы вводите название для новой заметки
         </UniversalPalette.PaletteInfoItem>
       </UniversalPalette.PaletteInfo>
     </InputPalette>
@@ -123,19 +123,19 @@ export function RenameNoteInputModal() {
         inputValue.endsWith('/') ||
         inputValue.endsWith('/.md')
       ) {
-        updateError(new Error('Must provide a note name'));
+        updateError(new Error('Введите название заметки'));
 
         return;
       }
 
       if (!wsName) {
-        updateError(new Error('No workspace open'));
+        updateError(new Error('Пространство не открыто'));
 
         return;
       }
 
       if (!targetWsPath) {
-        updateError(new Error('No note active'));
+        updateError(new Error('Нет активной заметки'));
 
         return;
       }
@@ -164,7 +164,7 @@ export function RenameNoteInputModal() {
           nsmApi2.ui.showNotification({
             severity: SEVERITY.ERROR,
             uid: 'error-rename-note-' + targetWsPath,
-            title: 'Unable to rename note',
+            title: 'не могу переименовать заметку',
             content: error.message,
           });
 
@@ -183,7 +183,7 @@ export function RenameNoteInputModal() {
 
   return (
     <InputPalette
-      placeholder="Enter the new name"
+      placeholder="введите новое название"
       onExecute={onExecute}
       onDismiss={onDismiss}
       updateError={updateError}
@@ -194,7 +194,7 @@ export function RenameNoteInputModal() {
     >
       <UniversalPalette.PaletteInfo>
         <UniversalPalette.PaletteInfoItem>
-          You are currently renaming "{initialValue}"
+          Вы переименовываете заметку "{initialValue}"
         </UniversalPalette.PaletteInfoItem>
       </UniversalPalette.PaletteInfo>
     </InputPalette>

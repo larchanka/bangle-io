@@ -23,19 +23,19 @@ const extension = Extension.create({
     operations: [
       {
         name: 'operation::@bangle.io/core-editor:collapse-heading',
-        title: 'Editor: Collapse heading',
+        title: 'Редактор: Свернуть все заголовки',
       },
       {
         name: 'operation::@bangle.io/core-editor:uncollapse-all-heading',
-        title: 'Editor: Uncollapse all headings',
+        title: 'Редактор: Развернуть все заголовки',
       },
       {
         name: 'operation::@bangle.io/core-editor:move-list-up',
-        title: 'Editor: Move list up',
+        title: 'Редактор: Список вверх',
       },
       {
         name: 'operation::@bangle.io/core-editor:move-list-down',
-        title: 'Editor: Move list down',
+        title: 'Редактор: Список вниз',
       },
     ],
 

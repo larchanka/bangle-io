@@ -30,7 +30,7 @@ export function ShowError({
 
   switch (errorType) {
     case WORKSPACE_NAME_ALREADY_EXISTS_ERROR: {
-      title = 'A workspace with the same name already exists.';
+      title = 'Пространство с таким именем уже существует';
       content = (
         <div>
           <button
@@ -42,55 +42,55 @@ export function ShowError({
               });
             }}
           >
-            Click here
+            Нажмите
           </button>{' '}
-          to open it
+          для открытия
         </div>
       );
       break;
     }
 
     case ERROR_PICKING_DIRECTORY_ERROR: {
-      title = 'There was an error opening your notes folder.';
+      title = 'Ошибка открытия папки с заметками.';
       content = (
         <div>
-          Please make sure your notes folder inside a common location like
-          Documents or Desktop.
+          Пожалуйста, убедитесь, что папка с заметками находится в общем месте,
+          например, в Документах или на Рабочем столе.
         </div>
       );
       break;
     }
 
     case CLICKED_TOO_SOON_ERROR: {
-      title = 'That didn’t work';
-      content = <div>Please try clicking the Browse button again.</div>;
+      title = 'Что-то пошло не так';
+      content = <div>Пожалуйста, нажмите кнопку "Выбрать" снова.</div>;
       break;
     }
     case INVALID_WORKSPACE_NAME_ERROR: {
-      title = 'Invalid workspace name';
+      title = 'Недопустимое имя рабочего пространства';
       content = (
         <div>
-          Workspace cannot have <code>:</code> in its name.
+          Имя рабочего пространства не может содержать <code>:</code>.
         </div>
       );
       break;
     }
     case WORKSPACE_AUTH_REJECTED_ERROR: {
-      title = 'Bangle.io was denied access to your notes.';
+      title = 'Дневник не получил доступ к вашим заметкам.';
       content = (
         <div>
-          Please try again and press <i>allow</i> to let Bangle.io access your
-          locally saved notes.
+          Пожалуйста, попробуйте снова и нажмите <i>разрешить</i>, чтобы Дневник
+          мог получить доступ к вашим локально сохраненным заметкам.
         </div>
       );
       break;
     }
     case UNKNOWN_ERROR: {
-      title = 'An unknown error occurred.';
+      title = 'Произошла неизвестная ошибка.';
       content = (
         <div>
-          Please reload window and try again. If the problem still persists open
-          an issue at{' '}
+          Пожалуйста, перезагрузите страницу и попробуйте снова. Если проблема
+          все еще существует, создайте тему на{' '}
           <a
             href="https://github.com/bangle-io/bangle-io/issues"
             className="underline"
@@ -105,7 +105,7 @@ export function ShowError({
     default: {
       // hack to catch switch slipping
       let val: never = errorType;
-      throw new Error('Unknown error type ' + val);
+      throw new Error('Неизвестная ошибка ' + val);
     }
   }
 

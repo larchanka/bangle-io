@@ -107,13 +107,13 @@ export const NewNativeFsWorkspaceDialog: DialogComponentType = ({
   return (
     <Dialog
       isDismissable
-      headingTitle="New Workspace"
+      headingTitle="Новое пространство"
       onDismiss={onDismiss}
       size="md"
       primaryButtonConfig={{
         disabled: !modalState.workspace,
         onPress: createWorkspace,
-        text: 'Create workspace',
+        text: 'Создать пространство',
       }}
     >
       {errorType && (
@@ -125,8 +125,8 @@ export const NewNativeFsWorkspaceDialog: DialogComponentType = ({
         <div className="mb-2">
           <h2 className="text-lg font-medium">Location</h2>
           <span className="text-sm text-colorNeutralTextSubdued">
-            Select a folder where Bangle.io will put all your notes. You can use
-            an existing folder or create a new one.
+            Выберите директорию для хранения файлов, это может быть как
+            существующая, так и новая директория.
           </span>
         </div>
         <PickStorageDirectory
@@ -201,12 +201,12 @@ function PickStorageDirectory({
         {dirName ? (
           <>
             <span>
-              You picked: <span className="font-bold">{dirName}</span>
+              Вы выбрали: <span className="font-bold">{dirName}</span>
             </span>
             <Button
               tone="secondary"
               variant="soft"
-              text="Clear"
+              text="Очистить"
               className="ml-2"
               size="xs"
               onPress={() => {
@@ -219,7 +219,7 @@ function PickStorageDirectory({
             id={BROWSE_BUTTON_ID}
             ariaLabel="pick directory"
             onPress={handlePickDirectory}
-            text="Browse"
+            text="Выбрать"
           />
         )}
       </div>

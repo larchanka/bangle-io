@@ -18,7 +18,7 @@ export function GenericErrorModal() {
     <Dialog
       onDismiss={onDismiss}
       primaryButtonConfig={{
-        text: 'Reload',
+        text: 'Перезагрузить',
         onPress: () => {
           window.location.reload();
         },
@@ -28,7 +28,7 @@ export function GenericErrorModal() {
       headingTitle={metadata.title}
       footer={
         <ExternalLink
-          text="Report an issue"
+          text="Сообщить об ошибке"
           href="https://github.com/bangle-io/bangle-io/issues/new"
         />
       }
@@ -50,5 +50,5 @@ function parseMetadata(dialogMetadata: any): GenericErrorModalMetadata {
   }
   console.warn('Unable to parse dialog metadata', dialogMetadata);
 
-  return { title: 'Error', description: 'Something went wrong' };
+  return { title: 'Ошибка', description: 'Что-то пошло не так' };
 }

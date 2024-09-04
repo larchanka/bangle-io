@@ -16,7 +16,7 @@ const extension = Extension.create({
     operations: [
       {
         name: 'operation::@bangle.io/note-browser:toggle-note-browser',
-        title: 'Show/Hide Notes Browser',
+        title: 'Показать/скрыть список заметок',
         keybinding: key,
         keywords: [
           'hide',
@@ -34,7 +34,7 @@ const extension = Extension.create({
       {
         name: 'sidebar::@bangle.io/note-browser:note-browser',
         title: 'Все заметки',
-        hint: `Note browser\n` + keyDisplayValue(key),
+        hint: `Все заметки\n` + keyDisplayValue(key),
         activitybarIcon: React.createElement(FolderIcon, {}),
         ReactComponent: NoteBrowserSidebar,
       },
