@@ -1,7 +1,12 @@
 import React from 'react';
 
+import { AiContainer } from '@bangle.io/ai';
 import type { NoteSidebarWidget } from '@bangle.io/shared-types';
-import { Button, ChevronRightIcon } from '@bangle.io/ui-components';
+import {
+  Button,
+  ChevronRightIcon,
+  FileDocumentIcon,
+} from '@bangle.io/ui-components';
 
 export function NoteSidebar({
   onDismiss,
@@ -10,10 +15,12 @@ export function NoteSidebar({
   onDismiss: () => void;
   widgets: NoteSidebarWidget[];
 }) {
+  const [hasGpu] = React.useState(!!navigator.gpu);
+
   return (
     <div className="flex flex-col flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued">
       <div className="flex flex-row justify-between px-2 mt-2">
-        <span className="font-bold self-center">Widgets</span>
+        <span className="font-bold self-center">Дополнения</span>
         <span>
           <Button
             size="sm"
@@ -26,7 +33,7 @@ export function NoteSidebar({
         </span>
       </div>
 
-      <div>
+      <div className="mb-2">
         {widgets.map((r) => (
           <div key={r.name} className="">
             <div className="flex flex-row justify-between px-2 mt-2">
@@ -39,6 +46,20 @@ export function NoteSidebar({
           </div>
         ))}
       </div>
+
+      {hasGpu && (
+        <div className="flex flex-col h-full">
+          <div className="flex flex-row justify-between px-2 mt-2">
+            <span className="font-bold self-center">ИИ-компаньон</span>
+            <span>
+              <FileDocumentIcon style={{ width: '1em', height: '1em' }} />
+            </span>
+          </div>
+          <div className="h-full">
+            <AiContainer />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

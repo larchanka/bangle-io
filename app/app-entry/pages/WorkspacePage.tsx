@@ -49,7 +49,7 @@ export function WorkspacePage() {
     if (miniWsPath && !widescreen) {
       notificationDispatch(
         nsmNotification.showNotification({
-          title: 'Mini Editor is not available in small screens',
+          title: 'Мини-редактор не доступен на маленьких экранах',
           uid: 'mini-editor-not-available',
           severity: SEVERITY.WARNING,
           transient: true,

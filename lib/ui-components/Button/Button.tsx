@@ -44,6 +44,7 @@ export function Button({
   tone = TONE.NEUTRAL,
   tooltipPlacement,
   variant = BUTTON_VARIANT.SOLID,
+  role = 'submit',
 }: {
   // do not fill in the set the width and height (w-X and h-X)
   // use size instead
@@ -68,6 +69,7 @@ export function Button({
   tone?: Tone;
   tooltipPlacement?: 'top' | 'bottom' | 'left' | 'right';
   variant?: ButtonVariant;
+  role?: string;
 }) {
   if (style.justifyContent) {
     console.warn(
@@ -99,6 +101,7 @@ export function Button({
   return (
     <button
       ref={ref}
+      role={role}
       {...useButtonStyleProps({
         elementProps,
         leftIcon,

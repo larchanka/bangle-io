@@ -44,17 +44,17 @@ export function LandingPage() {
 
   return (
     <CenteredBoxedPage
-      title="Welcome to Bangle.io"
+      title="Добро пожаловать в Дневник"
       actions={
         <>
           <Button
-            ariaLabel="new workspace"
+            ariaLabel="Новое пространство"
             onPress={() => {
               dispatchSerialOperation({
                 name: CORE_OPERATIONS_NEW_WORKSPACE,
               });
             }}
-            text="New workspace"
+            text="Новое пространство"
           />
         </>
       }
@@ -65,7 +65,7 @@ export function LandingPage() {
           onClickWsName={onClickWsName}
         />
       ) : (
-        <div className="mb-3">You do not have any workspaces</div>
+        <div className="mb-3">У вас пока нет рабочих пространств</div>
       )}
     </CenteredBoxedPage>
   );
@@ -86,7 +86,7 @@ function RecentWorkspace({
     <div className="mb-3" data-test="landing-page">
       <div className="flex flex-row mt-6">
         <h3 className="mr-1 leading-none text-l sm:text-xl lg:text-xl">
-          Workspaces
+          Пространства
         </h3>
       </div>
       <ul className="my-2 ml-2 list-disc list-inside max-h-72 overflow-y-auto">
@@ -115,7 +115,7 @@ function RecentWorkspace({
                   <span>{r.name} </span>
                   {r.name === lastWsName && (
                     <span className="font-light italic text-colorNeutralTextSubdued">
-                      (last opened)
+                      (последнее открытое)
                     </span>
                   )}
                 </button>

@@ -16,7 +16,7 @@ export function downloadWorkspace() {
     nsmApi2.ui.showNotification({
       severity: SEVERITY.ERROR,
       uid: 'new-note-not-no-workspace',
-      title: 'Please first select a workspace',
+      title: 'Сначала выберите рабочее пространство',
       buttons: [],
     });
 
@@ -27,7 +27,7 @@ export function downloadWorkspace() {
   nsmApi2.ui.showNotification({
     severity: SEVERITY.INFO,
     uid: 'downloading-ws-copy' + wsName,
-    title: 'Hang tight! your backup zip will be downloaded momentarily.',
+    title: 'Подождите! ваш файл резервной копии будет скачан через мгновение.',
     buttons: [],
   });
 
@@ -46,7 +46,7 @@ export function restoreWorkspaceFromBackup() {
       buttons: [],
       severity: SEVERITY.ERROR,
       uid: 'restoreWorkspaceFromBackup-no-workspace',
-      title: 'Please create an empty workspace first',
+      title: 'Сначала создайте пустую рабочее пространство',
     });
 
     return false;
@@ -61,7 +61,7 @@ export function restoreWorkspaceFromBackup() {
         severity: SEVERITY.INFO,
         uid: 'restoreWorkspaceFromBackup-' + wsName,
         title:
-          'Hang tight! Bangle is processing your notes. Please do not reload or close this tab.',
+          'Подождите! Дневник обрабатывает ваши заметки. Пожалуйста, не перезагружайте и не закрывайте эту вкладку.',
       });
 
       return naukarProxy.abortable.abortableCreateWorkspaceFromBackup(
@@ -81,9 +81,9 @@ export function restoreWorkspaceFromBackup() {
           buttons: [],
           severity: SEVERITY.SUCCESS,
           uid: 'recovery-finished-' + wsName,
-          title: `Restore success! ${
+          title: `Восстановление прошло успешно! ${
             nsmApi2.workspace.workspaceState().noteWsPaths?.length || 0
-          } notes were restored.`,
+          } заметок были восстановлены.`,
         });
       },
       (error) => {
@@ -93,7 +93,7 @@ export function restoreWorkspaceFromBackup() {
             buttons: [],
             severity: SEVERITY.ERROR,
             uid: 'restoreWorkspaceFromBackup-workspace-has-things',
-            title: 'This operation requires an empty workspace.',
+            title: 'Данная операция требует пустое рабочее пространство. ',
           });
 
           return;
@@ -111,7 +111,7 @@ export function deleteActiveNote() {
     nsmApi2.ui.showNotification({
       severity: SEVERITY.ERROR,
       uid: 'delete-wsPath-not-found',
-      title: 'Cannot delete because there is no primary note',
+      title: 'Невозможно удалить, потому что нет основной заметки',
       buttons: [],
     });
 
@@ -123,9 +123,9 @@ export function deleteActiveNote() {
   if (
     typeof window !== 'undefined' &&
     window.confirm(
-      `Are you sure you want to remove "${
+      `Вы уверены, что хотите удалить "${
         resolvePath2(focusedWsPath).filePath
-      }"? It cannot be undone.`,
+      }"? Это действие нельзя отменить.`,
     )
   ) {
     nsmApi2.workspace
@@ -135,7 +135,7 @@ export function deleteActiveNote() {
           buttons: [],
           severity: SEVERITY.SUCCESS,
           uid: 'success-delete-' + focusedWsPath,
-          title: 'Successfully deleted ' + focusedWsPath,
+          title: 'Удаление прошло успешно ' + focusedWsPath,
         });
       })
       .catch((error: unknown) => {
@@ -161,7 +161,7 @@ export function removeWorkspace(wsName?: WsName) {
       buttons: [],
       severity: SEVERITY.ERROR,
       uid: 'removeWorkspace-no-workspace',
-      title: 'Please open a workspace first',
+      title: 'Сначала откройте рабочее пространство',
     });
 
     return;
@@ -172,7 +172,7 @@ export function removeWorkspace(wsName?: WsName) {
       buttons: [],
       severity: SEVERITY.ERROR,
       uid: 'removeWorkspace-not-allowed',
-      title: 'Cannot remove help workspace',
+      title: 'Нельзя удалить справочное рабочее пространство',
     });
 
     return;
@@ -180,7 +180,7 @@ export function removeWorkspace(wsName?: WsName) {
 
   if (
     window.confirm(
-      `Are you sure you want to remove "${wsName}"? Removing a workspace does not delete any files inside it.`,
+      `Вы уверены, что хотите удалить "${wsName}"? Удаление рабочего пространства не удалит файлы внутри него.`,
     )
   ) {
     internalApi.workspace.deleteWorkspace(wsName);
@@ -189,7 +189,7 @@ export function removeWorkspace(wsName?: WsName) {
       buttons: [],
       severity: SEVERITY.SUCCESS,
       uid: 'success-removed-' + wsName,
-      title: 'Successfully removed ' + wsName,
+      title: 'Удаление прошло успешно ' + wsName,
     });
   }
 }

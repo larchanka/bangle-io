@@ -72,7 +72,7 @@ export function ActivitybarMobileDumb({
           {primaryWsPath ? (
             <Button
               variant="transparent"
-              ariaLabel="Go home"
+              ariaLabel="На главную"
               size="md"
               leftIcon={<ChevronLeftIcon />}
               onPress={() => {
@@ -94,12 +94,12 @@ export function ActivitybarMobileDumb({
         >
           <Button
             variant="transparent"
-            ariaLabel="files palette"
+            ariaLabel="список заметок"
             size="md"
             text={
               primaryWsPath
                 ? resolvePath(primaryWsPath).fileNameWithoutExt
-                : wsName || 'bangle-io'
+                : wsName || 'Заметки'
             }
             onPress={() => {
               uiDispatch(nsmUI.togglePalette(CorePalette.Notes));
@@ -114,10 +114,10 @@ export function ActivitybarMobileDumb({
                 <Button
                   variant="solid"
                   tone="promote"
-                  ariaLabel="done editing"
+                  ariaLabel="закончить изменение"
                   className="capitalize"
                   size="sm"
-                  text="Done"
+                  text="Готово"
                   onPress={() => {
                     editorDispatch(
                       toggleEditing({
@@ -130,10 +130,10 @@ export function ActivitybarMobileDumb({
               ) : (
                 <Button
                   variant="solid"
-                  ariaLabel={'edit'}
+                  ariaLabel={'редактировать'}
                   className="capitalize"
                   size="sm"
-                  text="edit"
+                  text="Изменить"
                   onPress={() => {
                     editorDispatch(
                       toggleEditing({

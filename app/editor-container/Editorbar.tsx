@@ -56,7 +56,7 @@ export function Editorbar({
       }}
     >
       <Button
-        ariaLabel="note path"
+        ariaLabel="путь к заметке"
         text={path}
         size="xs"
         className={isActive ? 'BU_active' : ''}
@@ -67,8 +67,8 @@ export function Editorbar({
 
       {editingDisabled && (
         <Button
-          ariaLabel="enable editing"
-          text="Enable Editing"
+          ariaLabel="Включить редактирование"
+          text="Включить редактирование"
           className="mx-2"
           size="xs"
           tone={TONE.PROMOTE}
@@ -84,7 +84,9 @@ export function Editorbar({
             onPress={onPressSecondaryEditor}
             className={cx('lg:mr-1', isSplitEditorOpen ? 'BU_is-active' : '')}
             ariaLabel={
-              isSplitEditorOpen ? 'Close split screen' : 'Split screen'
+              isSplitEditorOpen
+                ? 'Закрыть разделение экрана'
+                : 'Разделить экран'
             }
             leftIcon={<SecondaryEditorIcon />}
             tooltipPlacement="bottom"
@@ -93,7 +95,7 @@ export function Editorbar({
         <Button
           size="xs"
           variant="transparent"
-          ariaLabel="Close"
+          ariaLabel="Закрыть"
           onPress={onClose}
           leftIcon={<CloseIcon />}
         />

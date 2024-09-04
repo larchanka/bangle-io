@@ -65,7 +65,7 @@ export function SearchNotesSidebar() {
             nsmApi2.ui.togglePalette(CorePalette.Workspace);
           }}
         >
-          Please open a workspace to search
+          Откройте пространство, чтобы начать поиск
         </span>
       </div>
     );
@@ -83,8 +83,8 @@ export function SearchNotesSidebar() {
         {searchResults && (
           <span className="">
             {searchResults.length === 0
-              ? 'No match found'
-              : `Found ${searchResults.length} notes`}
+              ? 'Ничего не найдено'
+              : `Найдено ${searchResults.length} заметок`}
           </span>
         )}
         {searchResults && (
@@ -93,12 +93,12 @@ export function SearchNotesSidebar() {
               updateCollapseAllCounter((c) => c + 1);
             }}
           >
-            Collapse all
+            Свернуть все
           </ButtonIcon>
         )}
         {pendingSearch && (
           <>
-            <span className="">Searching </span>
+            <span className="">Ищу...</span>
             <span className="w-3 h-3 mr-2">
               <SpinnerIcon />
             </span>

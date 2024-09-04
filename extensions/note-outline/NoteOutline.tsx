@@ -125,10 +125,10 @@ export function NoteOutline() {
     <div className="note-outline_container flex flex-col">
       {(!headingNodes || headingNodes.length === 0) && (
         <span>
-          🐒 No headings found!
+          🐒 Заголовки не найдены!
           <br />
           <span className="font-light">
-            Create heading by typing # followed by a space.
+            Создайти заголовок, начав с # с пробелом после
           </span>
         </span>
       )}

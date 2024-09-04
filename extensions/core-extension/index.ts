@@ -101,119 +101,119 @@ const extension = Extension.create({
     operations: [
       {
         name: CORE_OPERATIONS_CLOSE_EDITOR,
-        title: 'Close all open editor/s',
+        title: 'Закрыть все открытые редакторы',
         keywords: ['dismiss', 'hide'],
       },
       {
         name: CORE_OPERATIONS_DELETE_ACTIVE_NOTE,
-        title: 'Delete active note',
+        title: 'Удалить текущую заметку',
         keywords: ['remove'],
       },
       {
         name: CORE_OPERATIONS_NEW_NOTE,
-        title: 'New note',
+        title: 'Новая заметка',
         keywords: ['create'],
         preventEditorFocusOnExecute: true,
       },
       {
         name: CORE_OPERATIONS_NEW_WORKSPACE,
-        title: 'New workspace',
+        title: 'Новое пространство',
         keywords: ['create'],
         preventEditorFocusOnExecute: true,
       },
       {
         name: CORE_OPERATIONS_REMOVE_ACTIVE_WORKSPACE,
-        title: 'Remove active workspace',
+        title: 'Удалить текущее пространство',
         keywords: ['delete'],
       },
       {
         name: CORE_OPERATIONS_RENAME_ACTIVE_NOTE,
-        title: 'Rename active note',
+        title: 'Переименовать текущую заметку',
         preventEditorFocusOnExecute: true,
       },
       {
         name: CORE_OPERATIONS_TOGGLE_NOTE_SIDEBAR,
-        title: 'Show/Hide Note Widget Sidebar',
+        title: 'Показать/спрятать дополнения',
         keywords: ['hide', 'outline', 'toc', 'backlink', 'right sidebar'],
       },
       {
         name: CORE_OPERATIONS_TOGGLE_EDITOR_SPLIT,
-        title: 'Show/Hide editor split screen',
+        title: 'Показать/спрятать разделение экрана',
         keybinding: 'Mod-\\',
         keywords: ['hide'],
       },
       {
         name: CORE_OPERATIONS_OPEN_IN_MINI_EDITOR,
-        title: 'Open in mini editor',
+        title: 'Открыть в мини-редакторе',
         keywords: ['preview'],
       },
       {
         name: CORE_OPERATIONS_CLOSE_MINI_EDITOR,
-        title: 'Close mini editor',
+        title: 'Закрыть мини-редактор',
         keywords: ['hide'],
       },
       {
         name: CORE_OPERATIONS_TOGGLE_UI_COLOR_SCHEME,
-        title: 'Switch Light/Dark theme',
+        title: 'Сменить светлую/темную тему',
         keywords: ['darkmode', 'lightmode', 'color'],
       },
       {
         name: CORE_OPERATIONS_CREATE_NATIVE_FS_WORKSPACE,
-        title: 'Create native fs workspace',
+        title: 'Создать пространство с локальными файлами',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_CREATE_BROWSER_WORKSPACE,
-        title: 'Create browser workspace',
+        title: 'Создать пространство в браузере',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_CREATE_PRIVATE_FS_WORKSPACE,
-        title: 'Create private fs workspace',
+        title: 'Создать приватное пространство с локальными файлами',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_SERVICE_WORKER_RELOAD,
-        title: 'Reload page in response to a service worker update',
+        title: 'Обновить страницу в ответ на обновление служебного воркера',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_SERVICE_WORKER_DISMISS_UPDATE,
-        title: 'Dismiss prompt from service worker to update',
+        title: 'Закрыть уведомление об обновлении служебного воркера',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_OPEN_GITHUB_ISSUE,
-        title: 'Report an issue on Github',
+        title: 'Рассказать о проблеме',
         hidden: true,
       },
       {
         name: CORE_OPERATIONS_DOWNLOAD_WORKSPACE_COPY,
-        title: 'Download a backup copy of workspace',
+        title: 'Скачать резервную копию пространства',
       },
       {
         name: CORE_OPERATIONS_NEW_WORKSPACE_FROM_BACKUP,
-        title: 'Restore this workspace from a backup file',
+        title: 'Восстановить пространство из резервной копии',
       },
       {
         name: 'operation::@bangle.io/core-extension:focus-primary-editor',
-        title: 'Editor: Focus on primary editor',
+        title: 'Редактор: Фокус на главном редакторе',
       },
       {
         name: 'operation::@bangle.io/core-extension:focus-secondary-editor',
-        title: 'Editor: Focus on secondary editor',
+        title: 'Редактор: Фокус на вторичном редакторе',
       },
       {
         name: 'operation::@bangle.io/core-extension:toggle-editing-mode',
-        title: 'Editor: Toggle editing mode',
+        title: 'Редактор: Переключить режим редактирования',
       },
       {
         name: 'operation::@bangle.io/core-extension:reload-application',
-        title: 'Reload application',
+        title: 'Перезагрузить приложение',
       },
       {
         name: 'operation::@bangle.io/core-extension:show-changelog',
-        title: 'Show Changelog',
+        title: 'Показать изменения',
         keywords: ['update', 'what is new'],
         preventEditorFocusOnExecute: true,
       },
@@ -227,7 +227,7 @@ const extension = Extension.create({
                 nsmApi2.ui.showNotification({
                   severity: SEVERITY.ERROR,
                   uid: 'new-note-not-no-workspace',
-                  title: 'Please first select a workspace',
+                  title: 'Сначала выберите пространство',
                 });
 
                 return true;
@@ -407,7 +407,9 @@ const extension = Extension.create({
               nsmApi2.ui.showNotification({
                 severity: editingAllowed ? SEVERITY.INFO : SEVERITY.WARNING,
                 uid: 'editing-mode' + editingAllowed + Date.now(),
-                title: 'Editing mode is now ' + (editingAllowed ? 'on' : 'off'),
+                title:
+                  'Режим редактирования ' +
+                  (editingAllowed ? 'включен' : 'выключен'),
               });
 
               return true;
@@ -459,7 +461,7 @@ async function createNativeFsWorkspace(rootDirHandle: any) {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
         uid: 'error-create-workspace-' + rootDirHandle?.name,
-        title: 'Unable to create workspace ' + rootDirHandle?.name,
+        title: 'Не могу создать пространство ' + rootDirHandle?.name,
         content: error.displayMessage || error.message,
       });
 
@@ -493,7 +495,7 @@ async function createBrowserWorkspace(wsName: WsName) {
     nsmApi2.ui.showNotification({
       severity: SEVERITY.ERROR,
       uid: 'error-create-workspace-' + wsName,
-      title: 'Unable to create workspace ' + wsName,
+      title: 'Не могу создать пространство ' + wsName,
       content: error.displayMessage || error.message,
     });
     throw error;
@@ -521,7 +523,7 @@ async function createPrivateFsWorkspace(wsName: WsName) {
     nsmApi2.ui.showNotification({
       severity: SEVERITY.ERROR,
       uid: 'error-create-workspace-' + wsName,
-      title: 'Unable to create workspace ' + wsName,
+      title: 'Не могу создать пространство ' + wsName,
       content: error.displayMessage || error.message,
     });
     throw error;

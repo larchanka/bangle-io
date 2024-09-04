@@ -25,7 +25,7 @@
   ],
   "javascript.preferences.importModuleSpecifier": "project-relative",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#913060",

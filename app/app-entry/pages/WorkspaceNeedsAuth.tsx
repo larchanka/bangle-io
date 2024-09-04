@@ -55,8 +55,8 @@ export function WorkspaceNativefsAuthBlockade({
 
         notificationDispatch(
           nsmNotification.showNotification({
-            content: `Error reading workspace info for ${wsName}. ${error.message}`,
-            title: 'Error',
+            content: `Ошибка чтения пространства ${wsName}. ${error.message}`,
+            title: 'Ошибка',
             severity: SEVERITY.ERROR,
             uid: 'workspace-info-read-error' + Date.now(),
           }),
@@ -81,7 +81,7 @@ export function WorkspaceNativefsAuthBlockade({
 
   const requestFSPermission = async () => {
     if (!wsInfo) {
-      throw new Error('workspace not found');
+      throw new Error('пространство не найдено');
     }
     if (wsInfo.type !== WorkspaceType.NativeFS) {
       onGranted();
@@ -162,23 +162,23 @@ function PermissionModal({
             emoji={permissionDenied ? '❌' : '📖'}
           />
           <span className="pl-1">
-            {permissionDenied ? 'permission denied' : 'requires permission'}
+            {permissionDenied ? 'доступ запрещен' : 'необходимо разрешение'}
           </span>
         </span>
       }
       actions={
         <Button
           tone="promote"
-          ariaLabel="grant disk read permission"
+          ariaLabel="Дать доступ к диску"
           onPress={() => {
             requestFSPermission();
           }}
-          text="Grant permission [Enter]"
+          text="Разрешить доступ [Ввод]"
         />
       }
     >
       <span>
-        Bangle.io needs permission to access your locally saved notes.
+        Дневник не может работать без доступа к файлам. Нажмите кнопку{' '}
       </span>
     </CenteredBoxedPage>
   );
@@ -194,7 +194,7 @@ export function WorkspaceSpan({
   return (
     <>
       <span className="font-normal">
-        {emoji} Workspace <span className="font-bold">{wsName}</span>
+        {emoji} Пространство <span className="font-bold">{wsName}</span>
       </span>
     </>
   );

@@ -98,13 +98,10 @@ const ActionPaletteUIComponent: ExtensionPaletteType['ReactComponent'] =
           </UniversalPalette.PaletteItemsContainer>
           <UniversalPalette.PaletteInfo>
             <UniversalPalette.PaletteInfoItem>
-              use:
+              <kbd className="font-normal">↑↓</kbd> Навигация
             </UniversalPalette.PaletteInfoItem>
             <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">↑↓</kbd> Navigate
-            </UniversalPalette.PaletteInfoItem>
-            <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">Enter</kbd> Execute
+              <kbd className="font-normal">Ввод</kbd> Выполнить
             </UniversalPalette.PaletteInfoItem>
           </UniversalPalette.PaletteInfo>
         </>

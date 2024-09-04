@@ -19,3 +19,12 @@
   box-shadow: var(--BC-bangleRingOffsetShadow), var(--BC-bangleRingShadow),
     var(--BC-bangleShadow, 0 0 #0000);
 }
+
+.ai-message-content pre {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  overflow: scroll;
+  font-size: 0.85em;
+  background-color: #efefef;
+}

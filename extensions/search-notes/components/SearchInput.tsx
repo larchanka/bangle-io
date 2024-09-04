@@ -32,14 +32,14 @@ export const SearchInput = ({
 
   return (
     <Input
-      label="Search"
+      label="Что ищем?"
       ref={inputRef}
       className="w-full"
       showClear
       value={searchQuery}
       onClear={onClear}
       onChange={onChange}
-      placeholder="Search"
+      placeholder="Что ищем?"
     />
   );
 };

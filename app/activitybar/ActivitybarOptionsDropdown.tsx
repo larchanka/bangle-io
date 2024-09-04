@@ -158,7 +158,7 @@ export function ActivitybarOptionsDropdown({
     <DropdownMenu
       buttonProps={{
         variant: 'transparent',
-        ariaLabel: 'options menu',
+        ariaLabel: 'меню опций',
         size: widescreen ? 'lg' : 'sm',
         tone: 'secondary',
         //  we need this to use the activitybar color of the icon
@@ -169,24 +169,24 @@ export function ActivitybarOptionsDropdown({
         onPressStyle: ButtonStyleOBj.press,
       }}
       menuProps={{
-        ariaLabel: 'options dropdown',
+        ariaLabel: 'выпадающий список опций',
         placement: widescreen ? 'right-start' : 'bottom-start',
       }}
       onAction={handleDropdown}
     >
       <MenuSection aria-label="misc section">
-        <MenuItem aria-label="new note" key={NewNoteKey}>
-          New note
+        <MenuItem aria-label="новая заметка" key={NewNoteKey}>
+          Новая заметка
         </MenuItem>
-        <MenuItem aria-label="new workspace" key={NewWorkspaceKey}>
-          New workspace
+        <MenuItem aria-label="новое пространство" key={NewWorkspaceKey}>
+          Новое пространство
         </MenuItem>
         <MenuItem
-          aria-label="switch workspace"
+          aria-label="переключить пространство"
           key={SwitchWorkspaceKey}
-          textValue="switch workspace"
+          textValue="переключить пространство"
         >
-          <span>Switch workspace</span>
+          <span>Переключить пространство</span>
           {widescreen && (
             <PrettyKeybinding
               rawKey={
@@ -203,17 +203,17 @@ export function ActivitybarOptionsDropdown({
         </MenuSection>
       )}
       <MenuSection aria-label="ui section">
-        <MenuItem aria-label="Switch Dark/Light theme" key={ToggleThemeKey}>
-          Switch Dark/Light theme
+        <MenuItem aria-label="Сменить светлую/темную тему" key={ToggleThemeKey}>
+          Сменить светлую/темную тему
         </MenuItem>
       </MenuSection>
       <MenuSection aria-label="palettes">
         <MenuItem
           key={NotesPaletteKey}
-          textValue="notes palette"
-          aria-label="notes palette"
+          textValue="все заметки"
+          aria-label="все заметки"
         >
-          <span>Notes palette</span>
+          <span>Все заметки</span>
           {widescreen && (
             <PrettyKeybinding
               rawKey={
@@ -224,10 +224,10 @@ export function ActivitybarOptionsDropdown({
         </MenuItem>
         <MenuItem
           key={ActionPaletteKey}
-          textValue="operation palette"
-          aria-label="operation palette"
+          textValue="все действия"
+          aria-label="все действия"
         >
-          <span>Operation palette</span>
+          <span>Все действия</span>
           {widescreen && (
             <PrettyKeybinding
               rawKey={
@@ -241,35 +241,11 @@ export function ActivitybarOptionsDropdown({
       <MenuSection aria-label="links section">
         <MenuItem
           key={WhatsNewKey}
-          textValue="whats new"
-          aria-label="whats new"
+          textValue="что нового?"
+          aria-label="что нового?"
         >
-          <span>Whats new</span>
+          <span>Что нового?</span>
           <GiftIcon className="w-5 h-5" />
-        </MenuItem>
-        <MenuItem
-          key={ReportIssueKey}
-          textValue="report issue"
-          aria-label="report issue"
-        >
-          <span>Report issue</span>
-          <BangleIcon className="w-5 h-5" />
-        </MenuItem>
-        <MenuItem
-          key={TwitterKey}
-          textValue="follow twitter"
-          aria-label="follow twitter"
-        >
-          <span>Twitter</span>
-          <TwitterIcon className="w-5 h-5" />
-        </MenuItem>
-        <MenuItem
-          key={DiscordKey}
-          textValue="join discord"
-          aria-label="join discord"
-        >
-          <span>Discord</span>
-          <DiscordIcon className="w-5 h-5" />
         </MenuItem>
       </MenuSection>
     </DropdownMenu>

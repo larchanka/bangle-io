@@ -19,3 +19,5 @@ tsconfig.tsbuildinfo
 # playwright
 playwright-report
 playwright/.cache/
+
+**/.yarn/*

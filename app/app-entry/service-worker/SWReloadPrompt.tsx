@@ -34,7 +34,7 @@ export function SWReloadPrompt() {
         nsmNotification.showNotification({
           uid: 'offline-' + RELEASE_ID,
           severity: SEVERITY.INFO,
-          title: 'Bangle.io is now offline ready.',
+          title: 'Дневник не готов к использованию без интернета.',
           transient: true,
         }),
       );
@@ -72,17 +72,17 @@ export function SWReloadPrompt() {
         nsmNotification.showNotification({
           severity: SEVERITY.INFO,
           uid,
-          title: '📦 Update available',
-          content: `There is a new version of Bangle.io available, would you like to update?`,
+          title: '📦 Доступно обновление',
+          content: `Появилась новая версия Дневника. Обновить??`,
           buttons: [
             {
-              title: 'Update',
-              hint: `Will reload the page with the newer version`,
+              title: 'Обновление',
+              hint: `Страница перезагружится после обновления`,
               operation: CORE_OPERATIONS_SERVICE_WORKER_RELOAD,
             },
             {
-              title: 'Later',
-              hint: `Will reload the page with the newer version`,
+              title: 'Позже',
+              hint: `Страница перезагружится после обновления`,
               operation: CORE_OPERATIONS_SERVICE_WORKER_RELOAD,
             },
           ],

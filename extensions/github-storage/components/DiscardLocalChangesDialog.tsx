@@ -24,10 +24,10 @@ export function DiscardLocalChangesDialog() {
     return (
       <Dialog
         isDismissable={false}
-        headingTitle="Confirm discarding of local changes"
+        headingTitle="Подтвердите отмену локальных изменений"
         onDismiss={() => {}}
       >
-        Please reload the application manually.
+        Перезагрузите приложение вручную
       </Dialog>
     );
   }
@@ -39,10 +39,10 @@ export function DiscardLocalChangesDialog() {
         onDismiss={() => {
           dismiss();
         }}
-        headingTitle="Not a Github workspace"
+        headingTitle="Это не репозиторий Github"
       >
-        This action can only occur in a workspace that is stored in Github.
-        Please open one and try again.
+        Это действие может быть выполнено только в репозитории Github.
+        Пожалуйста, откройте репозиторий Github и повторите попытку.
       </Dialog>
     );
   }
@@ -50,11 +50,11 @@ export function DiscardLocalChangesDialog() {
   return (
     <Dialog
       isDismissable
-      headingTitle="Confirm discarding of local changes"
+      headingTitle="Подтвердите отмену локальных изменений"
       isLoading={isProcessing}
       primaryButtonConfig={{
         isDestructive: true,
-        text: 'Discard',
+        text: 'Отменить',
         onPress: async () => {
           if (isProcessing) {
             return;
@@ -72,8 +72,9 @@ export function DiscardLocalChangesDialog() {
         dismiss();
       }}
     >
-      Are you sure you want to discard all your local changes? This action
-      cannot be undone and may result in a <b>loss of any unsaved changes</b>.
+      Вы уверены, что хотите отменить все локальные изменения? Это действие не
+      может быть отменено и может привести к{' '}
+      <b>потере всех несохраненных изменений</b>.
     </Dialog>
   );
 }

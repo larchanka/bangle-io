@@ -6,9 +6,9 @@ export function ErrorBoundary({ error }: FallbackProps) {
     <div className="w-full p-4">
       <div className="w-full p-4 rounded-md B-ui-components_bangle-error-boundary">
         <div className="w-full text-5xl text-center">🤕</div>
-        <h1 className="w-full my-4 text-center">Something went wrong!</h1>
+        <h1 className="w-full my-4 text-center">Что-то пошло не так!</h1>
         <div className="w-full text-sm text-center">
-          Help improve Bangle.io by reporting this on{' '}
+          Помогите исправить ошибку{' '}
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -18,7 +18,7 @@ export function ErrorBoundary({ error }: FallbackProps) {
             Github
           </a>
           <div className="w-full text-sm italic text-center">
-            Error: {error?.name + ':' + error?.message}
+            Ошибка: {error?.name + ':' + error?.message}
           </div>
         </div>
       </div>

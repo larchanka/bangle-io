@@ -28,6 +28,7 @@
     "@bangle.dev/table": "0.32.0",
     "@bangle.dev/utils": "0.32.0",
     "@bangle.io/activitybar": "workspace:*",
+    "@bangle.io/ai": "workspace:*",
     "@bangle.io/api": "workspace:*",
     "@bangle.io/baby-fs": "workspace:*",
     "@bangle.io/bangle-store": "workspace:*",

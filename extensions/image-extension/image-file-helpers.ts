@@ -12,6 +12,7 @@ export interface Dimension {
 }
 
 export function calcImageDimensions(blobUrl: string): Promise<Dimension> {
+  debugger;
   const image = new Image();
   image.src = blobUrl;
 

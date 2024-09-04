@@ -90,12 +90,12 @@ export function EditorContainer({
     children = (
       <div className="flex flex-col justify-center h-full px-3 align-middle">
         <h3 className="mb-8 text-xl font-bold leading-none sm:text-3xl lg:text-3xl">
-          🕵️‍♀️‍ Note "{wsPath ? resolvePath(wsPath).fileName : ''}" was not found
+          🕵️‍♀️‍ Заметка "{wsPath ? resolvePath(wsPath).fileName : ''}" не найдена
         </h3>
       </div>
     );
   } else if (noteExists === 'NO_WS_PATH') {
-    children = <div>Nothing was found here</div>;
+    children = <div>Ничего не найдено</div>;
   } else if (wsPath) {
     children = (
       <Editor

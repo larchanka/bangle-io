@@ -110,7 +110,7 @@ export function Notification({
             <Button
               size="xs"
               variant={BUTTON_VARIANT.TRANSPARENT}
-              ariaLabel="dismiss notification"
+              ariaLabel="закрыть уведомление"
               leftIcon={<CloseIcon />}
               onPress={() => {
                 onDismiss();

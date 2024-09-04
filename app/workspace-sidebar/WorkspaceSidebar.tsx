@@ -29,7 +29,7 @@ export function WorkspaceSidebar({
             variant="transparent"
             onPress={onDismiss}
             size="sm"
-            ariaLabel={'Hide ' + sidebar.title}
+            ariaLabel={'Спрятать ' + sidebar.title}
             tooltipPlacement="bottom"
             leftIcon={widescreen ? <ChevronLeftIcon /> : <CloseIcon />}
           />

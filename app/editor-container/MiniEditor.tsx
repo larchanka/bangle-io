@@ -75,7 +75,7 @@ export function MiniEditor({
             <Button
               size="xs"
               variant="transparent"
-              ariaLabel="Maximize"
+              ariaLabel="Увеличить"
               onPress={() => {
                 updateIsMinimized((e) => !e);
               }}
@@ -85,7 +85,7 @@ export function MiniEditor({
             <Button
               size="xs"
               variant="transparent"
-              ariaLabel="Minimize"
+              ariaLabel="Уменьшить"
               leftIcon={<ChevronDownIcon />}
               onPress={() => {
                 updateIsMinimized((e) => !e);
@@ -96,14 +96,14 @@ export function MiniEditor({
             variant="transparent"
             size="xs"
             onPress={onExpand}
-            ariaLabel={'Expand to full screen'}
+            ariaLabel={'Развернуть на весь экран'}
             leftIcon={<ArrowsExpand />}
           />
           <Button
             variant="transparent"
             size="xs"
             onPress={onClose}
-            ariaLabel={'Close'}
+            ariaLabel={'Закрыть'}
             leftIcon={<CloseIcon />}
           />
         </div>

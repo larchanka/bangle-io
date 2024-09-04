@@ -49,7 +49,7 @@ const createPaletteObject = ({
     },
     rightHoverNode: (
       <ButtonIcon
-        hint={`Open in split screen`}
+        hint={`Открыть во вторичном редакторе`}
         hintPos="left"
         onClick={onClick}
       >
@@ -159,20 +159,17 @@ const NotesPalette: ExtensionPaletteType['ReactComponent'] = React.forwardRef(
         </UniversalPalette.PaletteItemsContainer>
         <UniversalPalette.PaletteInfo>
           <UniversalPalette.PaletteInfoItem>
-            use:
+            <kbd className="font-normal">↑↓</kbd> Навигация
           </UniversalPalette.PaletteInfoItem>
           <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">↑↓</kbd> Navigate
+            <kbd className="font-normal">Ввод</kbd> Открыть
           </UniversalPalette.PaletteInfoItem>
           <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">Enter</kbd> Open
+            <kbd className="font-normal">Shift-Ввод</kbd> Открыть сбоку
           </UniversalPalette.PaletteInfoItem>
           <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">Shift-Enter</kbd> Open in side
-          </UniversalPalette.PaletteInfoItem>
-          <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">{keyDisplayValue('Mod')}-Enter</kbd>{' '}
-            Open in new tab
+            <kbd className="font-normal">{keyDisplayValue('Mod')}-Ввод</kbd>{' '}
+            Открыть в новой вкладке
           </UniversalPalette.PaletteInfoItem>
         </UniversalPalette.PaletteInfo>
       </>
@@ -184,7 +181,8 @@ export const notesPalette: ExtensionPaletteType = {
   type: CorePalette.Notes,
   icon: <FileDocumentIcon />,
   identifierPrefix: '',
-  placeholder: "Enter a file name or type '?' to see other palettes.",
+  placeholder:
+    "Введите имя файла или наберите '?', чтобы показать другие команды.",
   // match with any query
   parseRawQuery: (rawQuery) => rawQuery,
   ReactComponent: NotesPalette,

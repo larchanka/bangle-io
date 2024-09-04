@@ -57,7 +57,7 @@ const extension = Extension.create({
     ],
     sidebars: [
       {
-        title: 'Github sync',
+        title: 'Синхронизация с Github',
         name: 'sidebar::@bangle.io/github-storage:sidebar',
         ReactComponent: GithubSidebar,
         activitybarIcon: React.createElement(GithubIcon, {}),
@@ -76,23 +76,23 @@ const extension = Extension.create({
     operations: [
       {
         name: OPERATION_UPDATE_GITHUB_TOKEN,
-        title: 'Github: Update personal access token',
+        title: 'Github: Обновить токен',
       },
       {
         name: OPERATION_SYNC_GITHUB_CHANGES,
-        title: 'Github: Sync changes',
+        title: 'Github: Синхронизировать изменения',
       },
       {
         name: OPERATION_DISCARD_LOCAL_CHANGES,
-        title: 'Github: Discard local changes',
+        title: 'Github: Отменить изменения',
       },
       {
         name: OPERATION_SHOW_CONFLICT_DIALOG,
-        title: 'Github: Show conflicted files',
+        title: 'Github: Показать конфликт',
       },
       {
         name: OPERATION_OPTIMIZE_GITHUB_STORAGE,
-        title: 'Github: Optimize storage',
+        title: 'Github: Оптимизировать хранилище',
       },
     ],
     operationHandler() {

@@ -97,7 +97,7 @@ function EditorIssueInner({
       size="sm"
       leftIcon={SeverityLookup[severity]().component}
       text={text}
-      ariaLabel="Editor encountered an issue"
+      ariaLabel="Ошибка редактора"
     />
   );
 }

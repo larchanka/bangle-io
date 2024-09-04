@@ -67,11 +67,11 @@ export function BacklinkWidget() {
     >
       {!backlinkSearchResult || backlinkSearchResult.length === 0 ? (
         <span>
-          🐒 No backlinks found!
+          🐒 Ссылок не найдено
           <br />
           <span className="font-light">
-            Create one by typing <kbd className="font-normal">[[</kbd> followed
-            by the name of the note.
+            Создайте ссылку на заметку, набрав{' '}
+            <kbd className="font-normal">[[</kbd> и следом название заметки.
           </span>
         </span>
       ) : (

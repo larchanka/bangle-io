@@ -33,7 +33,7 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
     <div className="mb-3">
       <div className="flex flex-row mt-6">
         <h3 className="mr-1 leading-none text-lg smallscreen:text-xl lg:text-xl">
-          Recent notes
+          Текущие заметки
         </h3>
       </div>
       <ul className="my-2 ml-2 list-disc list-inside">
@@ -88,21 +88,21 @@ export function EmptyEditorPage() {
       actions={
         <>
           <Button
-            ariaLabel="Switch workspace"
+            ariaLabel="Переключить пространство"
             tooltipPlacement="right"
-            text="Switch workspace"
+            text="Переключить пространство"
             onPress={() => {
               uiDispatch(nsmUI.togglePalette(CorePalette.Workspace));
             }}
           />
           <Button
-            ariaLabel="create note"
+            ariaLabel="Создать заметку"
             onPress={() => {
               dispatchSerialOperation({
                 name: CORE_OPERATIONS_NEW_NOTE,
               });
             }}
-            text="Create note"
+            text="Создать заметку"
           />
         </>
       }
@@ -110,7 +110,7 @@ export function EmptyEditorPage() {
       {paths.length !== 0 ? (
         <RecentNotes wsPaths={paths} />
       ) : (
-        <div className="mb-3">You do not have any notes in this workspace</div>
+        <div className="mb-3">В этом пространстве нет заметок</div>
       )}
     </CenteredBoxedPage>
   );

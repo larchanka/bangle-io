@@ -17,32 +17,32 @@ export function WorkspaceInvalidPath() {
     <CenteredBoxedPage
       title={
         <span className="font-normal">
-          <span className="pl-1">🙈 Invalid path</span>
+          <span className="pl-1">🙈 Неверный путь</span>
         </span>
       }
       actions={
         <>
           <Button
-            ariaLabel="open another workspace"
-            text="Switch workspace"
+            ariaLabel="Открыть другое пространство"
+            text="Переключить пространство"
             onPress={() => {
               uiDispatch(nsmUI.togglePalette(CorePalette.Workspace));
             }}
           />
 
           <Button
-            ariaLabel="new workspace"
+            ariaLabel="Новое пространство"
             onPress={() => {
               dispatchSerialOperation({
                 name: CORE_OPERATIONS_NEW_WORKSPACE,
               });
             }}
-            text="New workspace"
+            text="Новое пространство"
           />
         </>
       }
     >
-      <span>If this is a mistake please create a bug report at </span>
+      <span>Если вы считаете, что это – ошибка, напишите нам на </span>
       <a
         target="_blank"
         rel="noreferrer"

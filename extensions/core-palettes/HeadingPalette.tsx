@@ -114,13 +114,10 @@ const HeadingPalette: ExtensionPaletteType['ReactComponent'] = React.forwardRef(
         </UniversalPalette.PaletteItemsContainer>
         <UniversalPalette.PaletteInfo>
           <UniversalPalette.PaletteInfoItem>
-            use:
+            <kbd className="font-normal">↑↓</kbd> Навигация
           </UniversalPalette.PaletteInfoItem>
           <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">↑↓</kbd> Navigate
-          </UniversalPalette.PaletteInfoItem>
-          <UniversalPalette.PaletteInfoItem>
-            <kbd className="font-normal">Enter</kbd> Jump to a heading
+            <kbd className="font-normal">Ввод</kbd> Перейти к заголовку
           </UniversalPalette.PaletteInfoItem>
         </UniversalPalette.PaletteInfo>
       </>
@@ -144,7 +141,7 @@ export const headingPalette: ExtensionPaletteType = {
   type: CorePalette.Heading,
   icon: <NullIcon />,
   identifierPrefix,
-  placeholder: 'Jump to a heading.',
+  placeholder: 'Перейти к заголовку.',
   parseRawQuery: (rawQuery) => {
     if (identifierPrefix && rawQuery.startsWith(identifierPrefix)) {
       return rawQuery.slice(1);

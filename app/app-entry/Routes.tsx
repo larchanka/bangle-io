@@ -19,7 +19,7 @@ export function Routes() {
       </Route>
       <Route path="/ws-auth/:wsName">
         {(params) => {
-          assertNotUndefined(params.wsName, 'wsName cannot be undefined');
+          assertNotUndefined(params.wsName, 'wsName не может быть undefined');
 
           return <WorkspaceNativefsAuthBlockade wsName={params.wsName} />;
         }}

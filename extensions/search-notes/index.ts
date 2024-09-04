@@ -28,12 +28,12 @@ const extension = Extension.create({
     operations: [
       {
         name: SHOW_SEARCH_SIDEBAR_OPERATION,
-        title: 'Open search sidebar',
+        title: 'Открыть поиск',
         keybinding: key,
       },
       {
         name: EXECUTE_SEARCH_OPERATION,
-        title: 'Execute search',
+        title: 'Выполнить поиск',
         hidden: true,
       },
     ],
@@ -43,7 +43,7 @@ const extension = Extension.create({
 
         if (sidebar === SEARCH_SIDEBAR_NAME) {
           const inputEl = document.querySelector<HTMLInputElement>(
-            'input[aria-label="Search"]',
+            'input[aria-label="Поиск по заметкам"]',
           );
           inputEl?.focus();
           inputEl?.select();
@@ -85,8 +85,8 @@ const extension = Extension.create({
     sidebars: [
       {
         name: SEARCH_SIDEBAR_NAME,
-        title: 'Search notes',
-        hint: `Search notes\n` + keyDisplayValue(key),
+        title: 'Поиск по заметкам',
+        hint: `Искать в заметках\n` + keyDisplayValue(key),
         activitybarIcon: React.createElement(SearchIcon, {}),
         ReactComponent: SearchNotesSidebar,
       },

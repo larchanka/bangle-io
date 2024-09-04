@@ -24,7 +24,7 @@ const extension = Extension.create({
     operations: [
       {
         name: WATCH_HEADINGS_PLUGIN_STATE_UPDATE_OP,
-        title: 'headings plugin state has updated',
+        title: 'плагин заголовков обновлен',
         hidden: true,
       },
     ],
@@ -32,7 +32,7 @@ const extension = Extension.create({
       {
         name: `note-sidebar-widget::${extensionName}`,
         ReactComponent: NoteOutline,
-        title: 'Outline',
+        title: 'Навигация по заметке',
       },
     ],
   },

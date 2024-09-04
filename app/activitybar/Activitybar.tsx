@@ -65,7 +65,7 @@ export function Activitybar() {
       className="flex flex-col flex-grow gap-2 pt-2 pb-3 border-r-1 border-colorNeutralBorder"
     >
       <Button
-        ariaLabel="Workspace Home"
+        ariaLabel="Обзор заметок"
         style={ButtonStyleOBj.normal}
         onPressStyle={ButtonStyleOBj.press}
         onHoverStyle={ButtonStyleOBj.hover}
@@ -90,7 +90,7 @@ export function Activitybar() {
       {sideBarComponents}
       <div className="flex-grow"></div>
       <Button
-        ariaLabel="What's new"
+        ariaLabel="Что нового?"
         style={ButtonStyleOBj.normal}
         onPressStyle={ButtonStyleOBj.press}
         onHoverStyle={ButtonStyleOBj.hover}

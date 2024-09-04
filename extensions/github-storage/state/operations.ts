@@ -69,7 +69,8 @@ export const syncRunner = operation({
     const isSyncingRef = getIsSyncingRef(store);
 
     if (isSyncingRef.current) {
-      notifyVerbose && notify('Github sync already in progress', SEVERITY.INFO);
+      notifyVerbose &&
+        notify('Github синхронизация уже запущена', SEVERITY.INFO);
 
       return false;
     }
@@ -88,9 +89,9 @@ export const syncRunner = operation({
 
       if (!lockAcquired) {
         notifyVerbose &&
-          notify('Github sync already in progress', SEVERITY.INFO);
+          notify('Github синхронизация уже запущена', SEVERITY.INFO);
 
-        console.warn('Github sync: lock not acquired');
+        console.warn('Github синхронизация: блокировка не получена');
 
         return false;
       }
@@ -105,12 +106,12 @@ export const syncRunner = operation({
           title: 'Github sync failed',
           uid: 'sync notification-' + Math.random(),
           content:
-            'Syncing failed due to merge conflicts. Please resolve the issues and try again.',
+            'Синхронизация не удалась. Нажмите "Разрешить конфликт" для разрешения конфликтов.',
           transient: false,
           buttons: [
             {
               operation: OPERATION_SHOW_CONFLICT_DIALOG,
-              title: 'Resolve Conflicts',
+              title: 'Разрешить конфликт',
               dismissOnClick: true,
             },
           ],
@@ -125,9 +126,9 @@ export const syncRunner = operation({
 
       console.error(error);
       notify(
-        'Github sync failed',
+        'Github синхронизация не удалась',
         SEVERITY.ERROR,
-        error instanceof Error ? error.message : 'Unknown error',
+        error instanceof Error ? error.message : 'Неизвестная ошибка',
       );
 
       return false;
@@ -173,13 +174,14 @@ export const syncRunner = operation({
 
       if (typeof changeCount === 'number') {
         if (changeCount === 0) {
-          notifyVerbose && notify('Github sync completed', SEVERITY.INFO);
+          notifyVerbose &&
+            notify('Github синхронизация завершена', SEVERITY.INFO);
         }
         if (changeCount > 0) {
           notify(
-            'Github sync completed',
+            'Github синхронизация завершена',
             SEVERITY.INFO,
-            `Synced ${changeCount} file${changeCount === 1 ? '' : 's'}`,
+            `Синхронизировано ${changeCount} файлов`,
           );
         }
       }
@@ -195,9 +197,9 @@ export const discardLocalChanges = operation({
 
     if (isSyncingRef.current) {
       notify(
-        'Cannot discard local changes',
+        'Локальные изменения нельзя отменить',
         SEVERITY.INFO,
-        'A sync is already in progress, please wait for it to finish.',
+        'Синхронизация уже запущена. Дождитесь завершения.',
       );
 
       return;
@@ -207,9 +209,9 @@ export const discardLocalChanges = operation({
 
     if (githubWsName !== wsName) {
       notify(
-        'Cannot discard local changes',
+        'Локальные изменения нельзя отменить',
         SEVERITY.INFO,
-        'This is not a Github workspace',
+        'Это не GitHub-репозиторий',
       );
 
       return;
@@ -243,9 +245,9 @@ export const discardLocalChanges = operation({
 
     if (!lockAcquired) {
       notify(
-        'Cannot discard local changes',
+        'Локальные изменения нельзя отменить',
         SEVERITY.INFO,
-        'A sync is already in progress, please wait for it to finish.',
+        'Синхронизация уже запущена. Дождитесь завершения.',
       );
 
       return;
@@ -253,15 +255,15 @@ export const discardLocalChanges = operation({
 
     if (!result) {
       notify(
-        'Failed to discard local changes',
+        'Локальные изменения нельзя отменить',
         SEVERITY.INFO,
-        'Failed to discard local changes. Please try again.',
+        'Локальные изменения нельзя отменить. Попробуйие ещё раз',
       );
 
       return;
     }
 
-    notify('Successfully discarded local changes', SEVERITY.SUCCESS);
+    notify('Локальные изменения отменены', SEVERITY.SUCCESS);
 
     if (reloadOnSuccess) {
       window.location.reload();
@@ -277,9 +279,9 @@ export const updateGithubToken = operation({
 
     if (githubWsName !== wsName) {
       notify(
-        'Cannot update Github token',
+        'Не могу изменить токен',
         SEVERITY.INFO,
-        'This is not a Github workspace',
+        'Это не GitHub-репозиторий',
       );
 
       return;

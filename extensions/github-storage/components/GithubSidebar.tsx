@@ -31,7 +31,10 @@ export function GithubSidebar() {
   return githubWsName ? (
     <ModifiedEntries wsName={githubWsName} openedWsPaths={openedWsPaths} />
   ) : (
-    <div className="pl-3">Please open a Github workspace</div>
+    <div className="pl-3">
+      Пожалуйста, откройте Github-
+      <span className="font-semibold">пространство</span>
+    </div>
   );
 }
 
@@ -91,7 +94,13 @@ function ModifiedEntries({
   );
 
   return !modifiedEntries || modifiedEntries.length === 0 ? (
-    <div className="px-3 text-lg">Everything is synced 🧘‍♂️!</div>
+    <div className="px-3 text-lg">
+      Все синхронизовано
+      <span role="img" aria-label="ok" className="ml-1">
+        🧘‍♂️
+      </span>
+      !
+    </div>
   ) : (
     <div>
       <div className="px-4 my-4">
@@ -99,7 +108,7 @@ function ModifiedEntries({
           className="w-full"
           onPress={() => {
             nsmApi2.ui.showNotification({
-              title: 'Starting sync',
+              title: 'Старт синхронизации',
               severity: SEVERITY.INFO,
               uid: 'starting-sync' + Date.now(),
               transient: true,
@@ -107,12 +116,12 @@ function ModifiedEntries({
 
             dispatchSerialOperation({ name: OPERATION_SYNC_GITHUB_CHANGES });
           }}
-          ariaLabel="Press sync to push any local changes and pull any new remote changes"
+          ariaLabel="Нажмите для синхронизации локальных изменений"
           tooltipPlacement="bottom"
-          text="Sync"
+          text="Синхронизировать"
         />
       </div>
-      <div className="px-3 text-sm">Files that need to be synced</div>
+      <div className="px-3 text-sm">Файлы, которые нужно синхронизировать</div>
       <div className="">
         {modifiedEntries.map((r) => {
           const wsPath = wsPathHelpers.isValidNoteWsPath(r.uid)
@@ -134,9 +143,9 @@ function ModifiedEntries({
                 uid: wsPath || r.uid,
                 isDisabled: Boolean(!wsPath || r.deleted),
                 showDividerAbove: false,
-                title: `${r.deleted ? '(deleted) ' : ''}${
+                title: `${r.deleted ? '(удален) ' : ''}${
                   wsPath && conflictedWsPaths.includes(wsPath)
-                    ? '(conflict) '
+                    ? '(конфликт) '
                     : ''
                 }${wsPath ? wsPathHelpers.resolvePath2(wsPath).filePath : ''}`,
               }}

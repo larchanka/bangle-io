@@ -21,7 +21,7 @@ export function ConflictDialog() {
       dismiss();
 
       nsmApi2.ui.showNotification({
-        title: 'No Github conflicts',
+        title: 'Нет конфликтов',
         severity: SEVERITY.INFO,
         uid: 'gh-conflict' + Date.now(),
         transient: true,
@@ -32,10 +32,10 @@ export function ConflictDialog() {
   return (
     <Dialog
       isDismissable
-      headingTitle="Github Conflict"
+      headingTitle="Конфликт"
       onDismiss={dismiss}
       primaryButtonConfig={{
-        text: 'Resolve Manually',
+        text: 'Вручную',
         onPress: () => {
           if (githubWsName) {
             nsmDispatch(operations.manuallyResolveConflict(githubWsName));
@@ -46,9 +46,10 @@ export function ConflictDialog() {
       allowScroll
     >
       <p className="text-sm">
-        Bangle was unable to sync the following files because of your local
-        files and remote files have conflicting changes. This can happen if a
-        file is modified at multiple places at simultaneously.
+        Дневник не может синхронизировать следующие файлы, потому что у вас есть
+        локальные изменения, а также изменения в удаленном репозитории, которые
+        конфликтуют. Это может произойти, если файл изменен в нескольких местах
+        одновременно.
       </p>
       <ul className="list-disc list-inside py-3 pl-2 text-sm">
         {conflictedWsPaths.map((path) => (
@@ -66,21 +67,22 @@ export function ConflictDialog() {
       <p className="text-sm">You can resolve this issue by doing:</p>
       <ol className="list-decimal list-inside py-2 pl-2 text-sm">
         <li className="mb-2">
-          Clicking resolve will create a new file with the same name but ending
-          with <code>-conflict</code> for each of the conflicting files and the
-          original file will be reset to match contents of the remote file.
+          Нажатие на кнопку "решить" создаст новый файл с тем же именем, но с
+          постфиксом <code>-conflict</code> для каждого конфликтующего файла, а
+          оригинальный файл будет сброшен до состояния, соответствующего
+          удаленному файлу.
         </li>
         <li className="mb-2">
-          The <code>-conflict</code> file will act as a reference to your local
-          change, so that you do not loose any data.
+          Файл <code>-conflict</code> будет представлять собой ссылку на ваш
+          локальный файл, чтобы вы не потеряли данные.
         </li>
         <li className="mb-2">
-          You can compare this file with the original file and make any
-          necessary change to resolve the conflict.
+          Вы можете сравнить этот файл с оригинальным файлом и внести
+          необходимые изменения, чтобы разрешить конфликт.
         </li>
         <li className="mb-2">
-          Once you have made changes to the original file, delete the
-          <code>-conflict</code> files and sync again.
+          Как только вы внесете изменения в оригинальный файл, удалите файлы
+          <code>-conflict</code> и синхронизируйте снова.
         </li>
       </ol>
     </Dialog>

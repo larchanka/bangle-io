@@ -135,17 +135,14 @@ const WorkspacePaletteUIComponent: ExtensionPaletteType['ReactComponent'] =
           </UniversalPalette.PaletteItemsContainer>
           <UniversalPalette.PaletteInfo>
             <UniversalPalette.PaletteInfoItem>
-              use:
+              <kbd className="font-normal">↑↓</kbd> Навигация
             </UniversalPalette.PaletteInfoItem>
             <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">↑↓</kbd> Navigate
+              <kbd className="font-normal">Ввод</kbd> Открыть пространство
             </UniversalPalette.PaletteInfoItem>
             <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">Enter</kbd> Open a workspace
-            </UniversalPalette.PaletteInfoItem>
-            <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">{keyDisplayValue('Mod')}-Enter</kbd>{' '}
-              Open a in new tab
+              <kbd className="font-normal">{keyDisplayValue('Mod')}-Ввод</kbd>{' '}
+              Открыть в новой вкладке
             </UniversalPalette.PaletteInfoItem>
           </UniversalPalette.PaletteInfo>
         </>
@@ -169,7 +166,7 @@ export const workspacePalette: ExtensionPaletteType = {
   type: CorePalette.Workspace,
   icon: <AlbumIcon />,
   identifierPrefix,
-  placeholder: 'Select a workspace to open',
+  placeholder: 'Выберите пространство для открытия',
   parseRawQuery: (rawQuery) => {
     if (identifierPrefix && rawQuery.startsWith(identifierPrefix)) {
       return rawQuery.slice(3);

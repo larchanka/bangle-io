@@ -68,13 +68,10 @@ const QuestionPaletteUIComponent: ExtensionPaletteType['ReactComponent'] =
           </UniversalPalette.PaletteItemsContainer>
           <UniversalPalette.PaletteInfo>
             <UniversalPalette.PaletteInfoItem>
-              use:
+              <kbd className="font-normal">↑↓</kbd> Навигация
             </UniversalPalette.PaletteInfoItem>
             <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">↑↓</kbd> Navigate
-            </UniversalPalette.PaletteInfoItem>
-            <UniversalPalette.PaletteInfoItem>
-              <kbd className="font-normal">Enter</kbd> Select a Palette
+              <kbd className="font-normal">Ввод</kbd> Выбрать команды
             </UniversalPalette.PaletteInfoItem>
           </UniversalPalette.PaletteInfo>
         </>

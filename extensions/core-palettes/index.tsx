@@ -20,21 +20,21 @@ const extension = Extension.create({
     operations: [
       {
         name: CORE_PALETTES_TOGGLE_OPERATION_PALETTE,
-        title: 'Operation Palette',
+        title: 'Все действия',
         hidden: true,
         keybinding: isFirefox ? 'Mod-o' : 'Mod-P',
       },
 
       {
         name: CORE_PALETTES_TOGGLE_WORKSPACE_PALETTE,
-        title: 'Switch Workspace',
+        title: 'Переключить пространство',
         hidden: false,
         keybinding: isMac ? 'Ctrl-r' : 'Ctrl-h',
       },
 
       {
         name: CORE_PALETTES_TOGGLE_NOTES_PALETTE,
-        title: 'Open a Note',
+        title: 'Открыть Заметку',
         hidden: false,
         keybinding: 'Mod-p',
       },

@@ -23,21 +23,21 @@ export function WorkspaceNotFound({ wsName }: { wsName?: string }) {
       title={
         <span className="font-normal">
           <WorkspaceSpan wsName={wsName || ''} emoji={'🕵️‍♀️'} />{' '}
-          <span className="pl-1"> not found</span>
+          <span className="pl-1"> не найдено</span>
         </span>
       }
       actions={
         <>
           <Button
-            ariaLabel="open another workspace"
-            text="Switch workspace"
+            ariaLabel="открыть другое пространство"
+            text="Переключить пространство"
             onPress={() => {
               uiDispatch(nsmUI.togglePalette(CorePalette.Workspace));
             }}
           />
           <Button
-            ariaLabel="new workspace"
-            text="New workspace"
+            ariaLabel="Новое пространство"
+            text="Новое пространство"
             onPress={() => {
               dispatchSerialOperation({
                 name: CORE_OPERATIONS_NEW_WORKSPACE,
@@ -47,7 +47,7 @@ export function WorkspaceNotFound({ wsName }: { wsName?: string }) {
         </>
       }
     >
-      <span>If this is a mistake please create a bug report at </span>
+      <span>Если вы считаете, что это – ошибка, напишите нам на </span>
       <a
         target="_blank"
         rel="noreferrer"
