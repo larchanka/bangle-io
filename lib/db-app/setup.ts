@@ -2,7 +2,7 @@ import type { BangleDbSchema, DbRecord } from '@bangle.io/db-key-val';
 import { getTable, idb } from '@bangle.io/db-key-val';
 import type { WorkspaceInfo } from '@bangle.io/shared-types';
 
-export const DB_NAME = 'bangle-io-db';
+export const DB_NAME = 'dnevnik-db';
 export const DB_VERSION = 2;
 export const WORKSPACE_INFO_TABLE = 'WorkspaceInfo';
 export const DUMMY_TABLE = 'DummyTable';

@@ -64,7 +64,7 @@ export function PaletteManager() {
 
   const updatePalette = useCallback<
     PaletteManagerReactComponentProps['updatePalette']
-  >((type, initialQuery = '') => {
+  >((type: string, initialQuery = '') => {
     nsmApi2.ui.updatePalette(type, initialQuery);
 
     if (type) {

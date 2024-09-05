@@ -13,7 +13,7 @@ export function ErrorBoundary({ error }: FallbackProps) {
             target="_blank"
             rel="noreferrer noopener"
             className="font-extrabold underline"
-            href="https://github.com/bangle-io/bangle-io/issues/new"
+            href="#/issues/new"
           >
             Github
           </a>

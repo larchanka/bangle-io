@@ -81,7 +81,7 @@ const NotesPalette: ExtensionPaletteType['ReactComponent'] = React.forwardRef(
         });
 
         if (i === 0) {
-          (obj as any).rightNode = 'Recent';
+          (obj as any).rightNode = 'Текущая';
         }
 
         return obj;

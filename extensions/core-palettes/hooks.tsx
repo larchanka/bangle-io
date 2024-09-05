@@ -72,7 +72,7 @@ export function useRecencyWatcher(
       // check if top one is recently used, if it is
       // add some juicy UI hints
       if (newItems[0] && operationHistory[newItems[0].uid]) {
-        newItems[0].rightNode = 'Recent';
+        newItems[0].rightNode = 'Текущее';
         const firstNotRecent = newItems.find(
           (a) => operationHistory[a.uid] == null,
         );

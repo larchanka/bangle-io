@@ -183,13 +183,13 @@ export function InlineCommandPalette() {
       </div>
       <UniversalPalette.PaletteInfo>
         <UniversalPalette.PaletteInfoItem>
-          <kbd className="font-normal">↑↓</kbd> Navigate
+          <kbd className="font-normal">↑↓</kbd> Навигация
         </UniversalPalette.PaletteInfoItem>
         <UniversalPalette.PaletteInfoItem>
-          <kbd className="font-normal">Enter</kbd> Execute a command
+          <kbd className="font-normal">Ввод</kbd> Выполнить команду
         </UniversalPalette.PaletteInfoItem>
         <UniversalPalette.PaletteInfoItem>
-          <kbd className="font-normal">Esc</kbd> Dismiss
+          <kbd className="font-normal">Esc</kbd> Скрыть
         </UniversalPalette.PaletteInfoItem>
       </UniversalPalette.PaletteInfo>
     </div>,

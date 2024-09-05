@@ -91,10 +91,7 @@ export function ShowError({
         <div>
           Пожалуйста, перезагрузите страницу и попробуйте снова. Если проблема
           все еще существует, создайте тему на{' '}
-          <a
-            href="https://github.com/bangle-io/bangle-io/issues"
-            className="underline"
-          >
+          <a href="#/issues" className="underline">
             Github
           </a>{' '}
         </div>

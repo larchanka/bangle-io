@@ -58,7 +58,7 @@ const ActionPaletteUIComponent: ExtensionPaletteType['ReactComponent'] =
             dispatchSerialOperation({ name: item.data.name });
             updateRecency(uid);
           }
-
+          console.log(121212, { item });
           const shouldPreventFocus: boolean = Boolean(
             item?.preventEditorFocusOnExecute,
           );

@@ -27,17 +27,17 @@ export class ErrorBoundary extends React.Component {
             <h1 className="w-full my-4 text-center">Something went wrong!</h1>
 
             <div className="w-full text-sm text-center">
-              Help improve Bangle.io by reporting this on{' '}
+              Помогите улучшить Дневник. Сообщите об ошибке на{' '}
               <a
                 target="_blank"
                 rel="noreferrer"
                 className="font-extrabold underline"
-                href="https://github.com/bangle-io/bangle-io/issues/new"
+                href="#/issues/new"
               >
                 Github
               </a>
               <div className="w-full text-sm italic text-center">
-                Error:{' '}
+                Ошибка:{' '}
                 {this.state.error?.displayMessage ||
                   this.state.error?.message ||
                   this.state.error?.name}

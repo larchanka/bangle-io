@@ -47,7 +47,7 @@ export function ListPalette({
 
   const errorItem = error && {
     uid: 'error',
-    title: '🤦‍♀️ Error',
+    title: '🤦‍♀️ Ошибка',
     description: error.displayMessage || error.message,
   };
 

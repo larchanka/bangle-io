@@ -395,7 +395,7 @@ const extension = Extension.create({
             }
 
             case CORE_OPERATIONS_OPEN_GITHUB_ISSUE: {
-              window.open(`https://github.com/bangle-io/bangle-io/issues/new`);
+              window.open(`#/issues/new`);
 
               return true;
             }

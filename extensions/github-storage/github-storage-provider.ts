@@ -224,7 +224,7 @@ export class GithubStorageProvider implements BaseStorageProvider {
     // TODO write a test to make sure error is thrown if file is not found
     if (!result) {
       throw new BaseError({
-        message: `File ${wsPath} not found`,
+        message: `Файл ${wsPath} не найден`,
         code: GITHUB_STORAGE_NOT_ALLOWED,
       });
     }

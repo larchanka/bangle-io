@@ -27,15 +27,15 @@ const extension = Extension.create({
 
       {
         name: CORE_PALETTES_TOGGLE_WORKSPACE_PALETTE,
-        title: 'Переключить пространство',
-        hidden: false,
+        title: 'Switch Workspace',
+        hidden: true,
         keybinding: isMac ? 'Ctrl-r' : 'Ctrl-h',
       },
 
       {
         name: CORE_PALETTES_TOGGLE_NOTES_PALETTE,
         title: 'Открыть Заметку',
-        hidden: false,
+        hidden: true,
         keybinding: 'Mod-p',
       },
     ],
@@ -47,18 +47,19 @@ const extension = Extension.create({
 
         return uiState?.paletteType === type ? undefined : type;
       };
+      window.x = nsmApi2.ui.updatePalette;
 
       return {
-        handle(operation) {
+        handle(operation: any) {
           switch (operation.name) {
-            case CORE_PALETTES_TOGGLE_OPERATION_PALETTE: {
-              nsmApi2.ui.updatePalette(getType(operationPalette.type));
+            case CORE_PALETTES_TOGGLE_WORKSPACE_PALETTE: {
+              nsmApi2.ui.updatePalette(getType(workspacePalette.type));
 
               return true;
             }
 
-            case CORE_PALETTES_TOGGLE_WORKSPACE_PALETTE: {
-              nsmApi2.ui.updatePalette(getType(workspacePalette.type));
+            case CORE_PALETTES_TOGGLE_OPERATION_PALETTE: {
+              nsmApi2.ui.updatePalette(getType(operationPalette.type));
 
               return true;
             }

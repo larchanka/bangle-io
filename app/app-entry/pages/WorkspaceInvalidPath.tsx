@@ -47,7 +47,7 @@ export function WorkspaceInvalidPath() {
         target="_blank"
         rel="noreferrer"
         className="font-extrabold underline"
-        href="https://github.com/bangle-io/bangle-io/issues/new"
+        href="#/issues/new"
       >
         Github
       </a>

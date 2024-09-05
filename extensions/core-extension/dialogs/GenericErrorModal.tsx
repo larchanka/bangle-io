@@ -26,12 +26,7 @@ export function GenericErrorModal() {
       size="md"
       isDismissable={true}
       headingTitle={metadata.title}
-      footer={
-        <ExternalLink
-          text="Сообщить об ошибке"
-          href="https://github.com/bangle-io/bangle-io/issues/new"
-        />
-      }
+      footer={<ExternalLink text="Сообщить об ошибке" href="#/issues/new" />}
     >
       {metadata.description}
     </Dialog>
