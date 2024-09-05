@@ -15,7 +15,7 @@ export async function deleteWorkspace(wsName: WsName): Promise<void> {
   if (!result) {
     throw new BaseError({
       code: WorkspaceInfoError.WorkspaceDeleteNotAllowed,
-      message: `Unable to delete workspace "${wsName}". It either is already deleted or is not allowed.`,
+      message: `Не могу удалить пространство "${wsName}". Оно или уже удалено, или у вас нет прав.`,
     });
   }
 }
@@ -45,7 +45,7 @@ export async function createWorkspace(
   if (!result) {
     throw new BaseError({
       code: WorkspaceInfoError.WorkspaceCreateNotAllowed,
-      message: `Unable to create workspace "${wsName}" as it either already exists or the operation is not allowed.`,
+      message: `Не могу создать пространство "${wsName}", так как оно уже существует или у вас нет прав.`,
     });
   }
 

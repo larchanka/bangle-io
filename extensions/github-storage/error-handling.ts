@@ -44,14 +44,14 @@ export function handleError(error: Error) {
       if (error.message.includes('Bad credentials')) {
         nsmApi2.ui.showNotification({
           severity: SEVERITY.ERROR,
-          title: 'Bad Github credentials',
+          title: 'Ошибка входа в Github',
           content:
-            'Please check your Github token has correct permissions and try again.',
+            'Проверьте, что ваш Github-токен обладает необхзодимыми правами.',
           uid: `github-storage-error-${errorCode}`,
           buttons: [
             {
-              title: 'Update token',
-              hint: `Update your Github token`,
+              title: 'Обновить токен',
+              hint: `Обновить ваш Github-токен`,
               operation: OPERATION_UPDATE_GITHUB_TOKEN,
               dismissOnClick: true,
             },
@@ -62,7 +62,7 @@ export function handleError(error: Error) {
       }
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Github API error',
+        title: 'Ошибка Github API',
         content: error.message,
         uid: `github-storage-error-${errorCode}`,
         buttons: [],
@@ -72,7 +72,7 @@ export function handleError(error: Error) {
     case INVALID_GITHUB_FILE_FORMAT: {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Invalid file format',
+        title: 'Неверный формат файла',
         content: error.message,
         uid: `github-file-format`,
         buttons: [],
@@ -82,14 +82,14 @@ export function handleError(error: Error) {
     case INVALID_GITHUB_TOKEN: {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Github token is invalid',
+        title: 'Github-токен недействителен',
         content:
-          'Please check your Github token has correct permissions and try again.',
+          'Проверьте, что ваш Github-токен обладает необхзодимыми правами.',
         uid: `github-storage-error-${errorCode}`,
         buttons: [
           {
-            title: 'Update token',
-            hint: `Update your Github token`,
+            title: 'Обновить токен',
+            hint: `Обновить ваш Github-токен`,
             operation: OPERATION_UPDATE_GITHUB_TOKEN,
             dismissOnClick: true,
           },
@@ -102,7 +102,7 @@ export function handleError(error: Error) {
     case INVALID_GITHUB_RESPONSE: {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Received invalid response from Github',
+        title: 'Получен некорректный ответ Github',
         content: error.message,
         uid: INVALID_GITHUB_RESPONSE,
         buttons: [],
@@ -113,7 +113,7 @@ export function handleError(error: Error) {
     case GITHUB_STORAGE_NOT_ALLOWED: {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Not allowed',
+        title: 'Запрещено',
         content: error.message,
         uid: GITHUB_STORAGE_NOT_ALLOWED + error.message,
         buttons: [],
@@ -124,7 +124,7 @@ export function handleError(error: Error) {
     case RemoteSyncErrorCode.REMOTE_SYNC_NOT_ALLOWED_ERROR: {
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Not allowed',
+        title: 'Запрещено',
         content: error.message,
         uid: RemoteSyncErrorCode.REMOTE_SYNC_NOT_ALLOWED_ERROR + error.message,
         buttons: [],
@@ -140,12 +140,12 @@ export function handleError(error: Error) {
 
       nsmApi2.ui.showNotification({
         severity: SEVERITY.ERROR,
-        title: 'Bangle.io encountered a problem.',
+        title: 'Ошибка 📕 Дневника.',
         uid: `uncaughtExceptionNotification-` + error.name,
         buttons: [
           {
-            title: 'Report issue',
-            hint: `Report an issue on Github`,
+            title: 'Отправить отчёт об ошибке',
+            hint: `Отправить отчёт об ошибке на Github`,
             operation: CORE_OPERATIONS_OPEN_GITHUB_ISSUE,
           },
         ],

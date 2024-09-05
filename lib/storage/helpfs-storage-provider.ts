@@ -12,9 +12,7 @@ function readFileFromUnpkg(wsPath: string) {
   const filePath = toFSPath(wsPath);
 
   function fetchHelpFiles(path: string, json = false) {
-    return fetch(
-      `https://unpkg.com/bangle-io-help@${HELP_DOCS_VERSION}/docs/` + path,
-    )
+    return fetch('/help.md')
       .then((r) => {
         if (!r.ok) {
           if (r.status === 404) {

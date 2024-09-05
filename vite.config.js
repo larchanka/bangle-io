@@ -76,6 +76,7 @@ export default defineConfig(async ({ command, mode }) => {
         minify: false,
         includeAssets: [
           '.htaccess',
+          'help.md',
           'favicon.ico',
           'favicon-dev.ico',
           'favicon-staging.ico',
@@ -107,7 +108,7 @@ export default defineConfig(async ({ command, mode }) => {
 });
 
 function generateManifest(appEnv) {
-  const isProd = appEnv === 'production';
+  const isProd = true;
   let icons = [];
 
   if (isProd) {
@@ -188,8 +189,8 @@ function generateManifest(appEnv) {
     ];
   }
   const manifest = {
-    name: 'bangle.io' + (isProd ? '' : '/' + appEnv),
-    short_name: 'bangle',
+    name: 'Дневник' + (isProd ? '' : '/' + appEnv),
+    short_name: 'dnevnik',
     theme_color: '#ffffff',
     background_color: '#ffffff',
     display: 'minimal-ui',

@@ -179,7 +179,7 @@ export function validateWsPath(wsPath: string) {
 
   if (others.length > 0) {
     throw new PathValidationError({
-      message: 'Semicolon not allowed file path',
+      message: 'Двоеточее запрещено в пути файла',
     });
   }
 
@@ -203,7 +203,7 @@ export function validateNoteWsPath(wsPath: string) {
 
   if (!isValidNoteWsPath(wsPath)) {
     throw new PathValidationError({
-      message: `Bangle.io support the following file extensions for notes: ${VALID_NOTE_EXTENSIONS.join(
+      message: `📕 Дневник поддерживает следующие типы файлов: ${VALID_NOTE_EXTENSIONS.join(
         ', ',
       )}`,
     });
@@ -236,7 +236,7 @@ export function parseLocalFilePath(filePath: string, wsPath: WsPath): WsPath {
     filePath = filePath.slice(2);
   }
   const { wsName, dirPath } = resolvePath2(wsPath);
-  let sampleDomain = 'https://bangle.io';
+  let sampleDomain = 'https://dnevnik.mobila.name';
 
   if (dirPath) {
     sampleDomain += '/' + dirPath + '/';
