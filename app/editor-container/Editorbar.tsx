@@ -12,6 +12,8 @@ import {
 import { cx } from '@bangle.io/utils';
 import { removeExtension, resolvePath2 } from '@bangle.io/ws-path';
 
+import MarkdownToPdf from './DownloadPdf';
+
 const MAX_ENTRIES = 3;
 
 export function Editorbar({
@@ -75,7 +77,9 @@ export function Editorbar({
           onPress={onEnableEditing}
         />
       )}
-      <div className="flex flex-row flex-1"></div>
+      <div className="flex flex-row flex-1 ml-4">
+        <MarkdownToPdf wsPath={wsPath} />
+      </div>
       <div className="flex flex-row">
         {showSplitEditor && (
           <Button

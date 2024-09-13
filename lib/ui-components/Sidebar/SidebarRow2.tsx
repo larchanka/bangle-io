@@ -16,6 +16,8 @@ export function Row2({
   // on touch devices having :hover forces you to click twice
   allowHover = !isTouchDevice,
   extraInfoOnNewLine = false,
+  onMouseOver,
+  onMouseLeave,
 }: {
   item: ItemType;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -27,6 +29,8 @@ export function Row2({
   style?: any;
   allowHover?: boolean;
   extraInfoOnNewLine?: boolean;
+  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const titleElement = (
     <span className={cx(extraInfoOnNewLine && 'flex flex-col')}>
@@ -49,6 +53,8 @@ export function Row2({
       role="button"
       data-id={item.uid}
       onClick={onClick}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
       className={cx(
         'B-ui-components_sidebar-row2',
         allowHover && 'BU_hover',

@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useVirtual } from 'react-virtual';
 
 import { nsmApi2, useSerialOperationContext } from '@bangle.io/api';
@@ -10,7 +16,8 @@ import {
   ChevronRightIcon,
   CloseIcon,
   DocumentAddIcon,
-  NullIcon,
+  FileIcon,
+  FolderIcon,
   Sidebar,
 } from '@bangle.io/ui-components';
 import {
@@ -109,8 +116,9 @@ export function NotesTree() {
   );
 }
 const IconStyle = {
-  height: 16,
-  width: 16,
+  height: '1em',
+  width: '1em',
+  marginRight: '.25em',
 };
 
 export function GenericFileBrowser({
@@ -325,6 +333,7 @@ function RenderRow({
   createNewFile: (path?: string) => void;
 }) {
   const elementRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (isActive) {
@@ -352,32 +361,52 @@ function RenderRow({
         isActive={isActive}
         onClick={onClick}
         // before changing this look at estimateSize of virtual
-        titleClassName="text-base truncate select-none"
+        titleClassName="truncate select-none tree-item-title"
         style={{
           paddingLeft: depth * BASE_PADDING,
           paddingRight: PADDING_OFFSET,
+        }}
+        onMouseOver={() => {
+          setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
         }}
         item={{
           uid: wsPath,
           showDividerAbove: false,
           title: name,
           leftNode: (
-            <ButtonIcon onClick={async (e) => {}}>
+            <ButtonIcon onClick={async (e: Event) => {}}>
               {isDir ? (
-                isCollapsed ? (
-                  <ChevronRightIcon style={IconStyle} />
+                isHovered ? (
+                  isCollapsed ? (
+                    <ChevronRightIcon style={IconStyle} />
+                  ) : (
+                    <ChevronDownIcon style={IconStyle} />
+                  )
                 ) : (
-                  <ChevronDownIcon style={IconStyle} />
+                  <FolderIcon
+                    style={{
+                      ...IconStyle,
+                      color: 'var(--BV-colorCautionBorder)',
+                    }}
+                  />
                 )
               ) : (
-                <NullIcon style={IconStyle} />
+                <FileIcon
+                  style={{
+                    ...IconStyle,
+                    color: 'var(--BV-colorPromoteSolidStrong)',
+                  }}
+                />
               )}
             </ButtonIcon>
           ),
           rightHoverNode: isDir ? (
             <ButtonIcon
               hint="Новый файл"
-              onClick={async (e) => {
+              onClick={async (e: Event) => {
                 e.stopPropagation();
 
                 if (depth === 0) {

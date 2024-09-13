@@ -276,18 +276,19 @@ export function AiContainer() {
       >
         <Div
           id="ai-chat"
-          className="flex flex-col items-end flex-grow h-full overflow-y-scroll text-colorNeutralTextSubdued p-2"
+          className="flex flex-col items-end flex-grow h-full overflow-y-scroll p-2"
         >
           {chatHistory.map(
             (message: ChatCompletionMessageParam, index: number) =>
               index > 0 ? (
                 <Div
                   className={`markdown ai-message-content ${
-                    message.role === 'user'
-                      ? 'opacity-50 pl-4'
-                      : 'color-colorText w-full'
+                    message.role === 'user' ? 'opacity-50 pl-4' : 'w-full'
                   } mt-2`}
                   key={`k-${index}`}
+                  style={{
+                    color: 'var(--BV-colorCautionSolidText)',
+                  }}
                 >
                   {message.role === 'assistant' && (
                     <Div
@@ -298,7 +299,7 @@ export function AiContainer() {
                         text={message.content}
                         options={{ format: 'text/plain' }}
                       >
-                        <Div className="text-base active:bg-colorNeutralBgLayerTop h-9 smallscreen:h-10 min-w-10 px-3  select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer ">
+                        <Div className="text-base active:bg-colorNeutralBgLayerTop h-9 smallscreen:h-10 min-w-10 px-3 select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden py-1 transition-all duration-100 cursor-pointer ">
                           <CopyIcon style={{ width: 16, height: 16 }} />
                         </Div>
                       </CopyToClipboard>

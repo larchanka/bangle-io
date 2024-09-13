@@ -11,6 +11,8 @@ export function ButtonIcon({
   active,
   style,
   removeFocus = true,
+  onMouseOver,
+  onMouseLeave,
 }: {
   className?: string;
   hint?: string;
@@ -20,6 +22,8 @@ export function ButtonIcon({
   active?: boolean;
   style?: React.CSSProperties;
   removeFocus?: boolean;
+  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   return (
     <button
@@ -34,6 +38,8 @@ export function ButtonIcon({
       )}
       onClick={onClick}
       style={style}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </button>
