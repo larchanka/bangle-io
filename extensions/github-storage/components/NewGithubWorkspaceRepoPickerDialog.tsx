@@ -137,17 +137,17 @@ export function NewGithubWorkspaceRepoPickerDialog() {
       headingIcon={<GithubIcon className="w-8 h-8" />}
       footer={
         <ExternalLink
-          text="How to create a personal access Github token?"
-          href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+          text="Как создать новый Github-токен?"
+          href="https://docs.github.com/ru/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
         />
       }
     >
       <div style={{ minHeight: MIN_HEIGHT }}>
         {error && <ErrorBanner title={`Error`} content={error.message} />}
-        Please pick a repository that will be used to store your notes.
+        Выберите репозиторий, который будет использоваться для хранения заметок.
         <div className="my-4">
           <ComboBox
-            label="Select repository"
+            label="Выберите репозиторий"
             menuTrigger="focus"
             onKeyUp={(e) => {
               if (e.key === 'Enter') {

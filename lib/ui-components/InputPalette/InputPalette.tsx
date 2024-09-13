@@ -45,12 +45,12 @@ export function InputPalette({
       [
         {
           uid: 'input-confirm',
-          title: 'Confirm',
+          title: 'Подтвердить',
           isDisabled: Boolean(showSpinner || error),
         },
         {
           uid: 'input-cancel',
-          title: 'Cancel',
+          title: 'Отменить',
           isDisabled: Boolean(showSpinner),
         },
       ].filter(Boolean),
@@ -59,7 +59,7 @@ export function InputPalette({
 
   const errorItem = error && {
     uid: 'error',
-    title: '🤦‍♀️ Error',
+    title: '🤦‍♀️ Ошибка',
     description: error.message,
   };
 

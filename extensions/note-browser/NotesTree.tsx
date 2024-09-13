@@ -82,7 +82,7 @@ export function NotesTree() {
             nsmApi2.ui.togglePalette(CorePalette.Workspace);
           }}
         >
-          Please open a workspace
+          Откройте рабочее пространство
         </span>
       </div>
     );
@@ -92,7 +92,7 @@ export function NotesTree() {
     return (
       <div className="flex flex-col items-center justify-center h-full">
         <span className="text-sm font-extrabold bangle-io_textColorLighter">
-          No notes found
+          Нет заметок
         </span>
       </div>
     );
@@ -196,17 +196,35 @@ const RenderItems = ({
 
   const parentRef = React.useRef<HTMLDivElement>(null);
   const rows = useMemo(() => {
-    return filesAndDirList.filter((path) => {
-      if (
-        collapsed.some((collapseDirPath) =>
-          path.startsWith(collapseDirPath + '/'),
-        )
-      ) {
-        return false;
-      }
+    return (
+      filesAndDirList
+        // .sort((path, oldPath) => {
+        //   const isDir = dirSet.has(path);
+        //   const splittedPath = path.split('/');
+        //   const depth = splittedPath.length;
 
-      return true;
-    });
+        //   if (depth === 1 && !isDir) {
+        //     return path?.[0] > oldPath?.[0] ? 1 : -1;
+        //   }
+
+        //   if (depth === 1 && isDir) {
+        //     return -1;
+        //   }
+
+        //   return depth === 1 ? 1 : -1;
+        // })
+        .filter((path) => {
+          if (
+            collapsed.some((collapseDirPath) =>
+              path.startsWith(collapseDirPath + '/'),
+            )
+          ) {
+            return false;
+          }
+
+          return true;
+        })
+    );
   }, [filesAndDirList, collapsed]);
 
   const rowVirtualizer = useVirtual({
@@ -358,7 +376,7 @@ function RenderRow({
           ),
           rightHoverNode: isDir ? (
             <ButtonIcon
-              hint="New file"
+              hint="Новый файл"
               onClick={async (e) => {
                 e.stopPropagation();
 
@@ -374,13 +392,13 @@ function RenderRow({
             </ButtonIcon>
           ) : (
             <ButtonIcon
-              hint="Delete file"
+              hint="Удалить файл"
               hintPos="bottom-right"
               onClick={async (e) => {
                 e.stopPropagation();
 
                 if (
-                  window.confirm(`Are you sure you want to delete "${name}"? `)
+                  window.confirm(`Вы действительно хотите удалить "${name}"? `)
                 ) {
                   nsmApi2.workspace.deleteNote(wsPath);
                 }

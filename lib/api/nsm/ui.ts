@@ -96,6 +96,10 @@ export const showNotification = (
 ): void => {
   const store = _internal_getStore();
   store.dispatch(nsmNotification.showNotification(...args));
+  
+  setTimeout(() => {
+    store.dispatch(nsmNotification.dismissNotification([args?.[0]?.uid]));
+  }, 5000);
 };
 export const clearAllNotifications = (
   ...args: Parameters<typeof nsmNotification.clearAllNotifications>

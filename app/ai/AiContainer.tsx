@@ -24,7 +24,7 @@ const isPowerfullPc = navigator?.deviceMemory >= 4;
 
 const selectedModel = isPowerfullPc
   ? 'Qwen2-1.5B-Instruct-q4f32_1-MLC'
-  : 'Qwen2-0.5B-Instruct-q4f32_1-MLC';
+  : 'Qwen2-0.5B-Instruct-q4f16_1-MLC';
 // Phi-3.5-mini-instruct-q4f16_1-MLC-1k
 // TinyLlama-1.1B-Chat-v0.4-q4f16_1-MLC-1k
 // RedPajama-INCITE-Chat-3B-v1-q4f16_1-MLC

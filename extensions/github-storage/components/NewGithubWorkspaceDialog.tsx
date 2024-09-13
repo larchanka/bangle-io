@@ -79,11 +79,11 @@ export function NewGithubWorkspaceTokenDialog() {
   return (
     <Dialog
       isDismissable
-      headingTitle="Github workspace"
-      dismissText="Cancel"
+      headingTitle="Github пространтсво"
+      dismissText="Отмена"
       isLoading={deferredIsLoading}
       primaryButtonConfig={{
-        text: 'Next',
+        text: 'Далее',
         disabled: !inputToken || inputToken.length === 0,
         onPress: onNext,
       }}
@@ -93,21 +93,21 @@ export function NewGithubWorkspaceTokenDialog() {
       headingIcon={<GithubIcon className="w-8 h-8" />}
       footer={
         <ExternalLink
-          text="How to create a personal access Github token?"
-          href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+          text="Как создать новый Github-токен?"
+          href="https://docs.github.com/ru/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
         />
       }
     >
       <div style={{ minHeight: MIN_HEIGHT }}>
         {error && <ErrorBanner title={`Error`} content={error.message} />}
-        Please provide a personal access token for communicating with Github.
-        The token will be safely stored in your browser's local storage.
+        Пожалуйста, введите персональный токен доступа для связи с Github. Токен
+        будет безопасно храниться в локальном хранилище вашего браузера.
         <div className="my-4">
           <TextField
             spellCheck={false}
             onKeyDown={onKeyDown}
-            placeholder="Github personal access token"
-            label="Token"
+            placeholder="Github-токен"
+            label="Токен"
             value={inputToken}
             onChange={(val) => {
               updateInputToken(val);
