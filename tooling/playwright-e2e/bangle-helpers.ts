@@ -17,11 +17,7 @@ export function getLast<T>(array: T[]): T | undefined {
 }
 
 export function removeExtension(str: string) {
-  if (str.endsWith('.md')) {
-    return str.slice(0, -3);
-  }
-
-  return str;
+  return str.replace(/(.p)?.md$/i, '');
 }
 
 export function resolvePath(wsPath: string) {

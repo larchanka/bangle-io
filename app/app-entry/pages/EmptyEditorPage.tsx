@@ -13,7 +13,12 @@ import {
 } from '@bangle.io/nsm-slice-workspace';
 import type { WsPath } from '@bangle.io/shared-types';
 import { nsmUI, nsmUISlice } from '@bangle.io/slice-ui';
-import { Button, CenteredBoxedPage } from '@bangle.io/ui-components';
+import {
+  Button,
+  CenteredBoxedPage,
+  FileIcon,
+  FilePresentationIcon,
+} from '@bangle.io/ui-components';
 import { removeExtension, resolvePath } from '@bangle.io/ws-path';
 
 import { WorkspaceSpan } from './WorkspaceNeedsAuth';
@@ -29,6 +34,12 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
     });
   }, [wsPaths]);
 
+  const IconStyle = {
+    height: '1em',
+    width: '1em',
+    marginRight: '.25em',
+  };
+
   return (
     <div className="mb-3">
       <div className="flex flex-row mt-6">
@@ -36,12 +47,18 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
           Текущие заметки
         </h3>
       </div>
-      <ul className="my-2 ml-2 list-disc list-inside">
+      <div className="my-2 ml-2e">
         {formattedPaths.map((r, i) => {
+          const isPresentation = r.fileName.endsWith('.p.md');
+
           return (
-            <li key={i}>
+            <div key={i}>
               <button
                 role="link"
+                className="flex py-1 hover:underline items-center"
+                style={{
+                  gap: '.25rem',
+                }}
                 onClick={(e) => {
                   nsmStore.dispatch(
                     pushOpenedWsPaths((openedWsPath) => {
@@ -49,19 +66,33 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
                     }),
                   );
                 }}
-                className="py-1 hover:underline"
               >
-                <span>{removeExtension(r.fileName)} </span>
+                {isPresentation ? (
+                  <FilePresentationIcon
+                    style={{
+                      ...IconStyle,
+                      color: 'var(--BV-colorPositiveIcon)',
+                    }}
+                  />
+                ) : (
+                  <FileIcon
+                    style={{
+                      ...IconStyle,
+                      color: 'var(--BV-colorPromoteSolidStrong)',
+                    }}
+                  />
+                )}
+                <span>{removeExtension(r.fileName)}</span>
                 {r.dirPath && (
                   <span className="font-light text-colorNeutralTextSubdued">
                     {r.dirPath}
                   </span>
                 )}
               </button>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }

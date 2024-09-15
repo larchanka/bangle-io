@@ -49,6 +49,8 @@ export function Editorbar({
     path = '…' + path.slice(-1 * 50);
   }
 
+  path = path.split('/').join(' / ');
+
   return (
     <div
       data-testid="app-editor-container_editorbar"

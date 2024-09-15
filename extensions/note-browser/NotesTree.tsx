@@ -17,6 +17,7 @@ import {
   CloseIcon,
   DocumentAddIcon,
   FileIcon,
+  FilePresentationIcon,
   FolderIcon,
   Sidebar,
 } from '@bangle.io/ui-components';
@@ -204,35 +205,17 @@ const RenderItems = ({
 
   const parentRef = React.useRef<HTMLDivElement>(null);
   const rows = useMemo(() => {
-    return (
-      filesAndDirList
-        // .sort((path, oldPath) => {
-        //   const isDir = dirSet.has(path);
-        //   const splittedPath = path.split('/');
-        //   const depth = splittedPath.length;
+    return filesAndDirList.filter((path) => {
+      if (
+        collapsed.some((collapseDirPath) =>
+          path.startsWith(collapseDirPath + '/'),
+        )
+      ) {
+        return false;
+      }
 
-        //   if (depth === 1 && !isDir) {
-        //     return path?.[0] > oldPath?.[0] ? 1 : -1;
-        //   }
-
-        //   if (depth === 1 && isDir) {
-        //     return -1;
-        //   }
-
-        //   return depth === 1 ? 1 : -1;
-        // })
-        .filter((path) => {
-          if (
-            collapsed.some((collapseDirPath) =>
-              path.startsWith(collapseDirPath + '/'),
-            )
-          ) {
-            return false;
-          }
-
-          return true;
-        })
-    );
+      return true;
+    });
   }, [filesAndDirList, collapsed]);
 
   const rowVirtualizer = useVirtual({
@@ -250,6 +233,7 @@ const RenderItems = ({
   const result = rowVirtualizer.virtualItems.map((virtualRow) => {
     const path = rows[virtualRow.index]!;
     const isDir = dirSet.has(path);
+    const isPresentation = !isDir && path.endsWith('.p.md');
     const wsPath = filePathToWsPath2(wsName, path);
     const splittedPath = path.split('/');
     const depth = splittedPath.length;
@@ -283,6 +267,7 @@ const RenderItems = ({
         virtualRow={virtualRow}
         path={path}
         isDir={isDir}
+        isPresentation={isPresentation}
         wsPath={wsPath}
         name={name}
         depth={depth}
@@ -313,6 +298,7 @@ function RenderRow({
   virtualRow,
   path,
   isDir,
+  isPresentation,
   wsPath,
   name,
   depth,
@@ -324,6 +310,7 @@ function RenderRow({
   virtualRow: any;
   path: string;
   isDir: boolean;
+  isPresentation: boolean;
   wsPath: WsPath;
   name: string;
   depth: number;
@@ -393,6 +380,13 @@ function RenderRow({
                     }}
                   />
                 )
+              ) : isPresentation ? (
+                <FilePresentationIcon
+                  style={{
+                    ...IconStyle,
+                    color: 'var(--BV-colorPositiveIcon)',
+                  }}
+                />
               ) : (
                 <FileIcon
                   style={{

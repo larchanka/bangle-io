@@ -47,9 +47,7 @@ export function suffixWithNoteExtension(str: string) {
 }
 
 export function removeExtension(str: string) {
-  const dotIndex = str.lastIndexOf('.');
-
-  return dotIndex === -1 ? str : str.slice(0, dotIndex);
+  return str.replace(/(.p)?.md$/i, '');
 }
 
 export type MaybeWsPath = string | undefined;

@@ -1,7 +1,6 @@
 import htmlToPdfmake from 'html-to-pdfmake';
 import { marked } from 'marked';
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
 import React from 'react';
 
 import { Button, DownloadIcon } from '@bangle.io/ui-components';
@@ -9,8 +8,15 @@ import { fs } from '@bangle.io/workspace-info';
 import { removeExtension, resolvePath2 } from '@bangle.io/ws-path';
 
 const MAX_ENTRIES = 1;
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs; // Required for embedding fonts
+pdfMake.fonts = {
+  // download default Roboto font from cdnjs.com
+  RobotoUrl: {
+    normal: 'https://dnevnik.mobila.name/fonts/Roboto-Regular.ttf',
+    bold: 'https://dnevnik.mobila.name/fonts/Roboto-Medium.ttf',
+    italics: 'https://dnevnik.mobila.name/fonts/Roboto-Italic.ttf',
+    bolditalics: 'https://dnevnik.mobila.name/fonts/Roboto-MediumItalic.ttf',
+  },
+};
 
 function cleanEmptyTextNodes(element: any): any {
   // If it's an array, iterate over it and clean each item
@@ -56,7 +62,7 @@ const MarkdownToPdf = ({ wsPath }: { wsPath: string }) => {
     const docDefinition = {
       content: pdfContent,
       defaultStyle: {
-        lineHeiht: 1,
+        font: 'RobotoUrl',
       },
     };
     let path = removeExtension(resolvePath2(wsPath).filePath);
