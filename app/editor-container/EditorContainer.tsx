@@ -32,6 +32,7 @@ import { resolvePath } from '@bangle.io/ws-path';
 
 import { Editorbar } from './Editorbar';
 import { EditorIssueComp } from './EditorIssueComp';
+import PresentationView from './PresentationView';
 
 export function EditorContainer({
   widescreen,
@@ -44,11 +45,13 @@ export function EditorContainer({
   wsPath: WsPath | undefined;
   eternalVars: EternalVars;
 }) {
+  const [isPresentationVisible, setIsPresentationVisible] = useState(true);
   const { noteExists, wsPath } = useHandleWsPath(incomingWsPath);
   const { openedWsPaths } = useNsmSliceState(nsmSliceWorkspace);
   const { editingAllowed, focusedEditorId } = useNsmSliceState(
     nsmEditorManagerSlice,
   );
+  const isPresentation = wsPath?.endsWith('.p.md');
 
   const { dispatchSerialOperation } = useSerialOperationContext();
   const editorStoreDispatch = useNsmSliceDispatch(nsmEditorManagerSlice);
@@ -145,14 +148,31 @@ export function EditorContainer({
       )}
 
       <div
-        className={cx('w-full smallscreen:min-h-screen')}
+        className={cx(
+          'w-full smallscreen:min-h-screen smallscreen:overflow-y-scroll' +
+            (isPresentation && isPresentationVisible
+              ? ' overflow-y-scroll'
+              : ''),
+        )}
         style={{
           maxWidth: `min(${vars.misc.pageMaxWidth}, 100vw)`,
           padding: vars.misc.pagePadding,
+          flex: 1,
         }}
       >
         {children}
       </div>
+      {isPresentation && isPresentationVisible && (
+        <div
+          className="w-full flex align-center justify-center border-t"
+          style={{
+            height: '50vh',
+            alignSelf: 'flex-end',
+          }}
+        >
+          <PresentationView wsPath={wsPath} revealAt={new Date().getTime()} />
+        </div>
+      )}
     </div>
   );
 }
