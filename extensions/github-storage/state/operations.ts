@@ -153,6 +153,9 @@ export const syncRunner = operation({
   }
 
   return async (store) => {
+    if (!navigator?.onLine) {
+      return;
+    }
     const result = await syncRunGuard(store, notifyVerbose);
 
     if (result === false) {

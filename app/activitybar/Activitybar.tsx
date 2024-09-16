@@ -19,6 +19,20 @@ export function Activitybar() {
     extensionRegistry.getSerialOperationKeybindingMapping();
   const { wsName } = useNsmSliceState(nsmSliceWorkspace);
   const [, pageDispatch] = useNsmSlice(nsmPageSlice);
+  const [isOnline, setIsOnline] = React.useState(navigator?.onLine ?? true);
+
+  React.useEffect(() => {
+    const onLineChange = () => {
+      setIsOnline(navigator?.onLine ?? true);
+    };
+    window.addEventListener('online', onLineChange);
+    window.addEventListener('offline', onLineChange);
+
+    return () => {
+      window.removeEventListener('online', onLineChange);
+      window.removeEventListener('offline', onLineChange);
+    };
+  }, []);
 
   const sidebars = extensionRegistry.getSidebars();
 
@@ -82,7 +96,22 @@ export function Activitybar() {
         variant="transparent"
         tone="secondary"
         size="lg"
-        leftIcon={<SingleCharIcon char={wsName?.toLocaleUpperCase() || 'Д'} />}
+        leftIcon={
+          <div className="relative">
+            <SingleCharIcon char={wsName?.toLocaleUpperCase() || 'Дневник'} />
+            {!isOnline && (
+              <span
+                className="absolute bottom-0 top-0 rounded-sm right-0 left-0"
+                style={{
+                  backgroundColor: 'var(--BV-colorCriticalIcon)',
+                  fontSize: '.35rem',
+                }}
+              >
+                Офлайн
+              </span>
+            )}
+          </div>
+        }
       />
 
       {sideBarComponents}

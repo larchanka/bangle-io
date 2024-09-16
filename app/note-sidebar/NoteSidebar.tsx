@@ -3,6 +3,8 @@ import React from 'react';
 import { AiContainer } from '@bangle.io/ai';
 import type { NoteSidebarWidget } from '@bangle.io/shared-types';
 import {
+  AddOnIcon,
+  BrainIcon,
   Button,
   ChevronDownIcon,
   ChevronRightIcon,
@@ -44,10 +46,18 @@ export function NoteSidebar({
         {widgets.map((r) => (
           <div key={r.name} className="">
             <div className="flex flex-row justify-between px-2 mt-2">
-              <span className="ml-1 font-semibold">{r.title}</span>
+              <span className="ml-1 font-semibold">
+                <AddOnIcon
+                  width={16}
+                  height={16}
+                  className="display-inline"
+                  style={{ fill: 'var(--BV-colorPositiveSolid)' }}
+                />{' '}
+                {r.title}
+              </span>
               <div></div>
             </div>
-            <div className="min-h-6 max-h-96 flex flex-col rounded-md p-1 mx-2 mt-1 overflow-y-auto bg-colorNeutralBgLayerTop border-neutral">
+            <div className="min-h-6 max-h-96 flex flex-col rounded-sm p-1 mx-2 mt-1 overflow-y-auto">
               <r.ReactComponent />
             </div>
           </div>
@@ -63,11 +73,19 @@ export function NoteSidebar({
           }`}
         >
           <div className="flex flex-row justify-between px-2 mt-2">
-            <span className="font-bold self-center">ИИ-ассистент</span>
+            <span className="font-bold self-center">
+              <BrainIcon
+                width={16}
+                height={16}
+                className="display-inline"
+                style={{ color: 'var(--BV-colorCriticalBorderStrong)' }}
+              />{' '}
+              ИИ-ассистент <sup className="text-xs">бета</sup>
+            </span>
             <span className="flex flex-row">
               <Button
                 size="xs"
-                variant="soft"
+                variant="transparent"
                 ariaLabel={isAiFullscreen ? 'exit-fullscreen' : 'fullscreen'}
                 onPress={() => setIsAiFullscreen(!isAiFullscreen)}
                 leftIcon={
@@ -76,7 +94,7 @@ export function NoteSidebar({
               />
               <Button
                 size="xs"
-                variant="soft"
+                variant="transparent"
                 text="очистить"
                 onPress={async () => {
                   setIsAiReload(true);

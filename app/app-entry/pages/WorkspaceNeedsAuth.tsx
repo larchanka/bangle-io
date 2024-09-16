@@ -15,7 +15,7 @@ import {
   nsmPageSlice,
 } from '@bangle.io/slice-page';
 import { nsmUISlice } from '@bangle.io/slice-ui';
-import { Button, CenteredBoxedPage } from '@bangle.io/ui-components';
+import { AlbumIcon, Button, CenteredBoxedPage } from '@bangle.io/ui-components';
 import { keybindingsHelper } from '@bangle.io/utils';
 import { readWorkspaceInfo } from '@bangle.io/workspace-info';
 import { createWsName } from '@bangle.io/ws-path';
@@ -193,8 +193,12 @@ export function WorkspaceSpan({
 }) {
   return (
     <>
-      <span className="font-normal">
-        {emoji} Пространство <span className="font-bold">{wsName}</span>
+      <span className="font-normal flex" style={{ gap: '.25rem' }}>
+        <AlbumIcon width="16" height="16" />
+        <span>Пространство</span>
+        <span className="font-bold overflow-hidden text-ellipsis">
+          {wsName}
+        </span>
       </span>
     </>
   );

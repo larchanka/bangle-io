@@ -165,7 +165,7 @@ function btnStyling({
 
   className = cx(
     className,
-    'select-none inline-flex justify-center items-center rounded-md whitespace-nowrap overflow-hidden',
+    'select-none inline-flex justify-center items-center rounded-sm whitespace-nowrap overflow-hidden',
     isTouch ? 'py-2' : 'py-1',
     isFocusVisible && 'ring-promote',
     animateOnPress

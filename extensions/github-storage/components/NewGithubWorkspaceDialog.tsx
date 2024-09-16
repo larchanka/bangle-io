@@ -79,7 +79,7 @@ export function NewGithubWorkspaceTokenDialog() {
   return (
     <Dialog
       isDismissable
-      headingTitle="Github пространтсво"
+      headingTitle="Github пространство"
       dismissText="Отмена"
       isLoading={deferredIsLoading}
       primaryButtonConfig={{

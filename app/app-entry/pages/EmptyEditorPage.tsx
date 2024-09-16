@@ -55,7 +55,7 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
             <div key={i}>
               <button
                 role="link"
-                className="flex py-1 hover:underline items-center"
+                className="flex py-1 hover:underline items-center w-full"
                 style={{
                   gap: '.25rem',
                 }}
@@ -82,11 +82,14 @@ function RecentNotes({ wsPaths }: { wsPaths: string[] }) {
                     }}
                   />
                 )}
-                <span>{removeExtension(r.fileName)}</span>
+                <div>{removeExtension(r.fileName)}</div>
                 {r.dirPath && (
-                  <span className="font-light text-colorNeutralTextSubdued">
+                  <div
+                    className="display-block font-light text-colorNeutralTextSubdued text-left overflow-hidden text-ellipsis"
+                    style={{ whiteSpace: 'nowrap', flex: 1 }}
+                  >
                     {r.dirPath}
-                  </span>
+                  </div>
                 )}
               </button>
             </div>
