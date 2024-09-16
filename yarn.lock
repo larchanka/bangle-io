@@ -2695,11 +2695,13 @@ __metadata:
     "@types/pdfmake": "npm:^0"
     "@types/react": "npm:^17.0.49"
     "@types/react-dom": "npm:^17.0.17"
+    "@types/reveal.js": "npm:^5"
     html-to-pdfmake: "npm:^2.5.13"
     marked: "npm:^14.1.2"
     pdfmake: "npm:^0.2.12"
     react: "npm:^17.0.2"
     react-dom: "npm:^17.0.2"
+    reveal.js: "npm:^5.1.0"
     tslib: "npm:2.6.0"
     typescript: "npm:5.1.6"
   peerDependencies:
@@ -8855,6 +8857,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/reveal.js@npm:^5":
+  version: 5.0.3
+  resolution: "@types/reveal.js@npm:5.0.3"
+  checksum: b65bf7d61324b66c45b6e841712c61f38365a9ba3fc58f0fe42906a00fe3175e5386da3b4ebeb84867768ea0fdb0683e4dba217cc1ddca614bc7ccbca0a46ee6
+  languageName: node
+  linkType: hard
+
 "@types/scheduler@npm:*":
   version: 0.16.5
   resolution: "@types/scheduler@npm:0.16.5"
@@ -10607,6 +10616,7 @@ __metadata:
     "@types/react": "npm:^17.0.49"
     "@types/react-copy-to-clipboard": "npm:^5"
     "@types/react-dom": "npm:^17.0.17"
+    "@types/reveal.js": "npm:^5"
     "@types/wicg-file-system-access": "npm:^2020.9.5"
     "@typescript-eslint/eslint-plugin": "npm:^5.27.1"
     "@typescript-eslint/parser": "npm:^5.27.1"
@@ -10662,6 +10672,7 @@ __metadata:
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^17.0.2"
     react-markdown: "npm:^9.0.1"
+    reveal.js: "npm:^5.1.0"
     serve: "npm:^12.0.1"
     servor: "github:kepta/servor#master"
     style-loader: "npm:^3.3.1"
@@ -21723,6 +21734,13 @@ __metadata:
   version: 1.0.4
   resolution: "reusify@npm:1.0.4"
   checksum: 14222c9e1d3f9ae01480c50d96057228a8524706db79cdeb5a2ce5bb7070dd9f409a6f84a02cbef8cdc80d39aef86f2dd03d155188a1300c599b05437dcd2ffb
+  languageName: node
+  linkType: hard
+
+"reveal.js@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "reveal.js@npm:5.1.0"
+  checksum: d27fc9e4bfcb3663f1de717ae1cfc0eb6d99e17d657050b90dc50682e4f0c102fe60059bdd669232eb702a206d9c9c385c0b8e75a566fe9a498d6b5302010c38
   languageName: node
   linkType: hard
 

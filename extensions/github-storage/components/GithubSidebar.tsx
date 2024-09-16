@@ -116,12 +116,12 @@ function ModifiedEntries({
 
             dispatchSerialOperation({ name: OPERATION_SYNC_GITHUB_CHANGES });
           }}
-          ariaLabel="Нажмите для синхронизации локальных изменений"
+          ariaLabel="Нажмите для синхронизации изменений"
           tooltipPlacement="bottom"
           text="Синхронизировать"
         />
       </div>
-      <div className="px-3 text-sm">Файлы, которые нужно синхронизировать</div>
+      <div className="px-3 text-sm">Файлы для синхронизации</div>
       <div className="">
         {modifiedEntries.map((r) => {
           const wsPath = wsPathHelpers.isValidNoteWsPath(r.uid)

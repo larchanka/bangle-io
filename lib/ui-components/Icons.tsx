@@ -71,7 +71,7 @@ export const ArrowsExpand = (props: React.SVGProps<SVGSVGElement>) => (
 export function TerminalIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      class="w-6 h-6 text-gray-800 dark:text-white"
+      className="w-6 h-6 text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -81,9 +81,9 @@ export function TerminalIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="m8 9 3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
       />
     </svg>
@@ -108,7 +108,7 @@ export function InfobarIcon(props: React.SVGProps<SVGSVGElement>) {
 export function AlbumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      class="w-6 h-6 text-gray-800 dark:text-white"
+      className="w-6 h-6 text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -118,9 +118,9 @@ export function AlbumIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4"
       />
     </svg>
@@ -151,7 +151,7 @@ export function BrowseIcon(props: React.SVGProps<SVGSVGElement>) {
 export function FileDocumentIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      class="w-6 h-6 text-gray-800 dark:text-white"
+      className="w-6 h-6 text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -161,9 +161,9 @@ export function FileDocumentIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
       />
     </svg>
@@ -412,7 +412,7 @@ export function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
 export function PdfIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      class="w-6 h-6"
+      className="w-6 h-6"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -420,9 +420,9 @@ export function PdfIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke={props.stroke || 'currentColor'}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M5 17v-5h1.5a1.5 1.5 0 1 1 0 3H5m12 2v-5h2m-2 3h2M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5m6 4v5h1.375A1.627 1.627 0 0 0 14 15.375v-1.75A1.627 1.627 0 0 0 12.375 12H11Z"
       />
     </svg>
@@ -432,7 +432,7 @@ export function PdfIcon(props: React.SVGProps<SVGSVGElement>) {
 export function DownloadIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      class="w-6 h-6"
+      className="w-6 h-6"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -440,9 +440,9 @@ export function DownloadIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01"
       />
     </svg>
@@ -859,8 +859,8 @@ export function FileIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
       />
     </svg>
@@ -878,8 +878,8 @@ export function FilePresentationIcon(props: React.SVGProps<SVGSVGElement>) {
     >
       <path
         stroke="currentColor"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1ZM9 12h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Zm5.697 2.395v-.733l1.269-1.219v2.984l-1.268-1.032Z"
       />
     </svg>

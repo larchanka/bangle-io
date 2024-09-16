@@ -552,6 +552,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:17.0.69"],\
           ["@types/react-copy-to-clipboard", "npm:5.0.7"],\
           ["@types/react-dom", "npm:17.0.22"],\
+          ["@types/reveal.js", "npm:5.0.3"],\
           ["@types/wicg-file-system-access", "npm:2020.9.8"],\
           ["@typescript-eslint/eslint-plugin", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.62.0"],\
           ["@typescript-eslint/parser", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.62.0"],\
@@ -607,6 +608,7 @@ const RAW_RUNTIME_STATE =
           ["react-copy-to-clipboard", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.1.0"],\
           ["react-dom", "virtual:7efffb02149d604d7f2a096251b6680b5895bed1c9f552da6683c4285a81fc9317ad050f969865bc799dd3579e58cf0d5608ff5461f0aeabda561505ca41f10b#npm:17.0.2"],\
           ["react-markdown", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:9.0.1"],\
+          ["reveal.js", "npm:5.1.0"],\
           ["serve", "npm:12.0.1"],\
           ["servor", "https://github.com/kepta/servor.git#commit=6d1fc4b45943655e0b3c97dbef66ee7071aa899a"],\
           ["style-loader", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:3.3.3"],\
@@ -5496,11 +5498,13 @@ const RAW_RUNTIME_STATE =
           ["@types/pdfmake", "npm:0.2.9"],\
           ["@types/react", "npm:17.0.69"],\
           ["@types/react-dom", "npm:17.0.22"],\
+          ["@types/reveal.js", "npm:5.0.3"],\
           ["html-to-pdfmake", "npm:2.5.13"],\
           ["marked", "npm:14.1.2"],\
           ["pdfmake", "npm:0.2.12"],\
           ["react", "npm:17.0.2"],\
           ["react-dom", "virtual:7efffb02149d604d7f2a096251b6680b5895bed1c9f552da6683c4285a81fc9317ad050f969865bc799dd3579e58cf0d5608ff5461f0aeabda561505ca41f10b#npm:17.0.2"],\
+          ["reveal.js", "npm:5.1.0"],\
           ["tslib", "npm:2.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
         ],\
@@ -5543,11 +5547,13 @@ const RAW_RUNTIME_STATE =
           ["@types/pdfmake", "npm:0.2.9"],\
           ["@types/react", "npm:17.0.69"],\
           ["@types/react-dom", "npm:17.0.22"],\
+          ["@types/reveal.js", "npm:5.0.3"],\
           ["html-to-pdfmake", "npm:2.5.13"],\
           ["marked", "npm:14.1.2"],\
           ["pdfmake", "npm:0.2.12"],\
           ["react", "npm:17.0.2"],\
           ["react-dom", "virtual:7efffb02149d604d7f2a096251b6680b5895bed1c9f552da6683c4285a81fc9317ad050f969865bc799dd3579e58cf0d5608ff5461f0aeabda561505ca41f10b#npm:17.0.2"],\
+          ["reveal.js", "npm:5.1.0"],\
           ["tslib", "npm:2.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
         ],\
@@ -13581,6 +13587,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/reveal.js", [\
+      ["npm:5.0.3", {\
+        "packageLocation": "./.yarn/cache/@types-reveal.js-npm-5.0.3-2c0c8456c2-b65bf7d613.zip/node_modules/@types/reveal.js/",\
+        "packageDependencies": [\
+          ["@types/reveal.js", "npm:5.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/scheduler", [\
       ["npm:0.16.5", {\
         "packageLocation": "./.yarn/cache/@types-scheduler-npm-0.16.5-59f95de675-5aae67331b.zip/node_modules/@types/scheduler/",\
@@ -15889,6 +15904,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:17.0.69"],\
           ["@types/react-copy-to-clipboard", "npm:5.0.7"],\
           ["@types/react-dom", "npm:17.0.22"],\
+          ["@types/reveal.js", "npm:5.0.3"],\
           ["@types/wicg-file-system-access", "npm:2020.9.8"],\
           ["@typescript-eslint/eslint-plugin", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.62.0"],\
           ["@typescript-eslint/parser", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.62.0"],\
@@ -15944,6 +15960,7 @@ const RAW_RUNTIME_STATE =
           ["react-copy-to-clipboard", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:5.1.0"],\
           ["react-dom", "virtual:7efffb02149d604d7f2a096251b6680b5895bed1c9f552da6683c4285a81fc9317ad050f969865bc799dd3579e58cf0d5608ff5461f0aeabda561505ca41f10b#npm:17.0.2"],\
           ["react-markdown", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:9.0.1"],\
+          ["reveal.js", "npm:5.1.0"],\
           ["serve", "npm:12.0.1"],\
           ["servor", "https://github.com/kepta/servor.git#commit=6d1fc4b45943655e0b3c97dbef66ee7071aa899a"],\
           ["style-loader", "virtual:a0e84116df92a68962258c1f9eb799e018e889721126fae4b2523a6da7dd54ac42155e649bc61d1684a9335106d87480c78a53bbd3d6ed93a5f1cb972ebd5ebf#npm:3.3.3"],\
@@ -28810,6 +28827,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/reusify-npm-1.0.4-95ac4aec11-14222c9e1d.zip/node_modules/reusify/",\
         "packageDependencies": [\
           ["reusify", "npm:1.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["reveal.js", [\
+      ["npm:5.1.0", {\
+        "packageLocation": "./.yarn/cache/reveal.js-npm-5.1.0-d5de7f45c7-d27fc9e4bf.zip/node_modules/reveal.js/",\
+        "packageDependencies": [\
+          ["reveal.js", "npm:5.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
