@@ -94,7 +94,7 @@ function ModifiedEntries({
   );
 
   return !modifiedEntries || modifiedEntries.length === 0 ? (
-    <div className="px-3 text-lg">
+    <div className="m-3 p-1 text-sm text-center bg-colorNeutralBgLayerBottom rounded-sm">
       Все синхронизовано
       <span role="img" aria-label="ok" className="ml-1">
         🧘‍♂️

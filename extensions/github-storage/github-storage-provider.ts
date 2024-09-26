@@ -33,7 +33,7 @@ export class GithubStorageProvider implements BaseStorageProvider {
     wsPath: string,
     file: File,
     opts: StorageOpts,
-  ): Promise<void> {
+  ): Promise<any> {
     const entry = makeLocallyCreatedEntry({
       uid: wsPath,
       file,
@@ -47,6 +47,8 @@ export class GithubStorageProvider implements BaseStorageProvider {
       type: 'create',
       wsPath,
     });
+
+    return success;
   }
 
   async deleteFile(wsPath: string, opts: StorageOpts): Promise<void> {
@@ -219,7 +221,8 @@ export class GithubStorageProvider implements BaseStorageProvider {
   ): Promise<void> {
     log('writeFile', wsPath, file);
 
-    let result = await fileEntryManager.writeFile(wsPath, file, sha);
+    const result = await this.createFile(wsPath, file, opts);
+    // let result = await fileEntryManager.writeFile(wsPath, file, sha);
 
     // TODO write a test to make sure error is thrown if file is not found
     if (!result) {

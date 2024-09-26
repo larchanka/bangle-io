@@ -11,6 +11,7 @@ import { nsmApi2, useSerialOperationContext } from '@bangle.io/api';
 import { CORE_OPERATIONS_NEW_NOTE, CorePalette } from '@bangle.io/constants';
 import type { WsName, WsPath } from '@bangle.io/shared-types';
 import {
+  ArchiveIcon,
   ButtonIcon,
   ChevronDownIcon,
   ChevronRightIcon,
@@ -238,6 +239,7 @@ const RenderItems = ({
     const splittedPath = path.split('/');
     const depth = splittedPath.length;
     const name = removeExtension(splittedPath.pop() || 'Unknown file name');
+    const isArchive = name === 'Архив';
 
     const onClick = (event: React.MouseEvent<any>) => {
       if (isDir) {
@@ -263,6 +265,7 @@ const RenderItems = ({
 
     return (
       <RenderRow
+        isArchive={isArchive}
         key={path}
         virtualRow={virtualRow}
         path={path}
@@ -303,6 +306,7 @@ function RenderRow({
   name,
   depth,
   isActive,
+  isArchive = false,
   isCollapsed,
   onClick,
   createNewFile,
@@ -315,6 +319,7 @@ function RenderRow({
   name: string;
   depth: number;
   isActive: boolean;
+  isArchive?: boolean;
   isCollapsed: boolean;
   onClick: (event: React.MouseEvent<any>) => void;
   createNewFile: (path?: string) => void;
@@ -372,6 +377,13 @@ function RenderRow({
                   ) : (
                     <ChevronDownIcon style={IconStyle} />
                   )
+                ) : isArchive ? (
+                  <ArchiveIcon
+                    style={{
+                      ...IconStyle,
+                      color: 'var(--BV-colorNeutralTextStrong)',
+                    }}
+                  />
                 ) : (
                   <FolderIcon
                     style={{

@@ -66,7 +66,7 @@ export function BacklinkWidget() {
       className="flex flex-col"
     >
       {!backlinkSearchResult || backlinkSearchResult.length === 0 ? (
-        <span>
+        <span className="text-sm">
           🐒 Ссылок не найдено
           <br />
           <span className="font-light">

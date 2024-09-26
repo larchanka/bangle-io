@@ -108,7 +108,7 @@ function ChangelogDisplay() {
       state={editorState}
       focusOnInit={false}
       className="px-5 B-core-extension_changelog-dialog-container text-sm"
-      renderNodeViews={() => {
+      renderNodeViews={(node, updateAttrs, children) => {
         return null;
       }}
       children={null}

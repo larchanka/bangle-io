@@ -124,7 +124,7 @@ export function NoteOutline() {
   return (
     <div className="note-outline_container flex flex-col">
       {(!headingNodes || headingNodes.length === 0) && (
-        <span>
+        <span className="text-sm">
           🐒 Заголовки не найдены!
           <br />
           <span className="font-light">

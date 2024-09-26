@@ -39,7 +39,7 @@ const extension = Extension.create({
       }),
     ],
     plugins: [inlineBacklinkPlugin()],
-    markdownItPlugins: [wikiLinkMarkdownItPlugin],
+    markdownItPlugins: [wikiLinkMarkdownItPlugin], // TODO
     ReactComponent: InlineBacklinkPalette,
     renderReactNodeView: renderReactNodeView,
   },
