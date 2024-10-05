@@ -125,11 +125,11 @@ export function NewGithubWorkspaceRepoPickerDialog() {
   return (
     <Dialog
       isDismissable
-      headingTitle="Github workspace"
-      dismissText="Cancel"
+      headingTitle="Github-пространство"
+      dismissText="Отменить"
       isLoading={deferredIsLoading}
       primaryButtonConfig={{
-        text: 'Open',
+        text: 'Открыть',
         disabled: !Boolean(selectedRepo),
         onPress: onCreate,
       }}
@@ -143,7 +143,7 @@ export function NewGithubWorkspaceRepoPickerDialog() {
       }
     >
       <div style={{ minHeight: MIN_HEIGHT }}>
-        {error && <ErrorBanner title={`Error`} content={error.message} />}
+        {error && <ErrorBanner title={`Ошибка`} content={error.message} />}
         Выберите репозиторий, который будет использоваться для хранения заметок.
         <div className="my-4">
           <ComboBox

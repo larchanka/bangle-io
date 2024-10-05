@@ -210,7 +210,8 @@ const RenderItems = ({
       if (
         collapsed.some((collapseDirPath) =>
           path.startsWith(collapseDirPath + '/'),
-        )
+        ) ||
+        path?.toLowerCase().indexOf('readme.md') !== -1
       ) {
         return false;
       }
@@ -262,6 +263,10 @@ const RenderItems = ({
       }
       closeSidebar();
     };
+
+    if (name.toLowerCase() === 'readme') {
+      return null;
+    }
 
     return (
       <RenderRow

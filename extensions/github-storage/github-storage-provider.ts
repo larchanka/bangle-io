@@ -221,8 +221,11 @@ export class GithubStorageProvider implements BaseStorageProvider {
   ): Promise<void> {
     log('writeFile', wsPath, file);
 
-    const result = await this.createFile(wsPath, file, opts);
-    // let result = await fileEntryManager.writeFile(wsPath, file, sha);
+    let result = await this.createFile(wsPath, file, opts);
+
+    if (!result) {
+      result = await fileEntryManager.writeFile(wsPath, file, sha);
+    }
 
     // TODO write a test to make sure error is thrown if file is not found
     if (!result) {
