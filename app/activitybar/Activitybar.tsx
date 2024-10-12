@@ -63,7 +63,7 @@ export function Activitybar() {
           onHoverStyle={ButtonStyleOBj.hover}
           className={cx('border-l-2', active && 'BU_is-active')}
           variant="transparent"
-          size="lg"
+          size="md"
           leftIcon={r.activitybarIcon}
         />
       );
@@ -78,42 +78,6 @@ export function Activitybar() {
       }}
       className="flex flex-col flex-grow gap-2 pt-2 pb-3 border-r-1 border-colorNeutralBorder"
     >
-      <Button
-        ariaLabel="Обзор заметок"
-        style={ButtonStyleOBj.normal}
-        onPressStyle={ButtonStyleOBj.press}
-        onHoverStyle={ButtonStyleOBj.hover}
-        onPress={() => {
-          if (wsName) {
-            uiDispatch(nsmUI.closeSidebar());
-            pageDispatch(
-              goToWorkspaceHome({
-                wsName,
-              }),
-            );
-          }
-        }}
-        variant="transparent"
-        tone="secondary"
-        size="lg"
-        leftIcon={
-          <div className="relative">
-            <SingleCharIcon char={wsName?.toLocaleUpperCase() || 'Дневник'} />
-            {!isOnline && (
-              <span
-                className="absolute bottom-0 top-0 rounded-sm right-0 left-0"
-                style={{
-                  backgroundColor: 'var(--BV-colorCriticalIcon)',
-                  fontSize: '.35rem',
-                }}
-              >
-                Офлайн
-              </span>
-            )}
-          </div>
-        }
-      />
-
       {sideBarComponents}
       <div className="flex-grow"></div>
       <Button

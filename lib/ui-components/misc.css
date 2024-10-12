@@ -21,8 +21,10 @@
 }
 
 .tree-item-title {
-  font-weight: 500;
-  font-size: .9em;
+  font-weight: 300;
+  font-size: .85em;
+  line-height: 1.1;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif */
 }
 
 .ai-message-content pre {

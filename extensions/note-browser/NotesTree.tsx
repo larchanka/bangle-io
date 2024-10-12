@@ -11,15 +11,12 @@ import { nsmApi2, useSerialOperationContext } from '@bangle.io/api';
 import { CORE_OPERATIONS_NEW_NOTE, CorePalette } from '@bangle.io/constants';
 import type { WsName, WsPath } from '@bangle.io/shared-types';
 import {
-  ArchiveIcon,
   ButtonIcon,
   ChevronDownIcon,
   ChevronRightIcon,
   CloseIcon,
   DocumentAddIcon,
-  FileIcon,
   FilePresentationIcon,
-  FolderIcon,
   Sidebar,
 } from '@bangle.io/ui-components';
 import {
@@ -44,7 +41,7 @@ const rem =
     ? 16
     : parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-const rowHeight = 1.5 * rem; // 1.75rem line height of text-lg
+const rowHeight = 1.75 * rem; // 1.75rem line height of text-lg
 
 // TODO the current design just ignores empty directory
 // TODO check if in widescreen sidebar is closed
@@ -121,6 +118,7 @@ const IconStyle = {
   height: '1em',
   width: '1em',
   marginRight: '.25em',
+  color: 'var(--BV-colorSecondarySolidStronger)',
 };
 
 export function GenericFileBrowser({
@@ -360,8 +358,9 @@ function RenderRow({
         // before changing this look at estimateSize of virtual
         titleClassName="truncate select-none tree-item-title"
         style={{
-          paddingLeft: depth * BASE_PADDING,
+          paddingLeft: (isDir ? depth : depth + 1) * BASE_PADDING,
           paddingRight: PADDING_OFFSET,
+          lineHeight: '1.5em',
         }}
         onMouseOver={() => {
           setIsHovered(true);
@@ -376,41 +375,20 @@ function RenderRow({
           leftNode: (
             <ButtonIcon onClick={async (e: Event) => {}}>
               {isDir ? (
-                isHovered ? (
-                  isCollapsed ? (
-                    <ChevronRightIcon style={IconStyle} />
-                  ) : (
-                    <ChevronDownIcon style={IconStyle} />
-                  )
-                ) : isArchive ? (
-                  <ArchiveIcon
-                    style={{
-                      ...IconStyle,
-                      color: 'var(--BV-colorNeutralTextStrong)',
-                    }}
-                  />
+                isCollapsed ? (
+                  <ChevronRightIcon style={IconStyle} />
                 ) : (
-                  <FolderIcon
+                  <ChevronDownIcon style={IconStyle} />
+                )
+              ) : (
+                isPresentation && (
+                  <FilePresentationIcon
                     style={{
                       ...IconStyle,
-                      color: 'var(--BV-colorCautionBorder)',
+                      color: 'var(--BV-colorPositiveIcon)',
                     }}
                   />
                 )
-              ) : isPresentation ? (
-                <FilePresentationIcon
-                  style={{
-                    ...IconStyle,
-                    color: 'var(--BV-colorPositiveIcon)',
-                  }}
-                />
-              ) : (
-                <FileIcon
-                  style={{
-                    ...IconStyle,
-                    color: 'var(--BV-colorPromoteSolidStrong)',
-                  }}
-                />
               )}
             </ButtonIcon>
           ),

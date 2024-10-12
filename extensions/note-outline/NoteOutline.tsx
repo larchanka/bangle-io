@@ -166,6 +166,7 @@ export function NoteOutline() {
               paddingTop: 4,
               paddingBottom: 4,
               whiteSpace: 'nowrap',
+              fontWeight: 300,
             }}
             text={
               <span className="pl-1">

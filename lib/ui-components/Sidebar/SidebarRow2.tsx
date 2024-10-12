@@ -33,19 +33,19 @@ export function Row2({
   onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const titleElement = (
-    <span className={cx(extraInfoOnNewLine && 'flex flex-col')}>
+    <div className={cx(extraInfoOnNewLine && 'flex flex-col', 'truncate')}>
       <span className={titleClassName}>{item.title}</span>
       {item.extraInfo && (
-        <span
+        <div
           className={cx(
-            'B-ui-components_extra-info ' + extraInfoClassName,
+            'B-ui-components_extra-info truncate ' + extraInfoClassName,
             extraInfoOnNewLine && 'B-ui-components_extra-info-on-new-line',
           )}
         >
           {item.extraInfo}
-        </span>
+        </div>
       )}
-    </span>
+    </div>
   );
 
   return (
@@ -71,20 +71,24 @@ export function Row2({
         ...style,
       }}
     >
-      <div className="flex flex-row">
-        <div className="B-ui-components_left-node">{item.leftNode}</div>
-        {item.description ? (
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {titleElement}
-            <span
-              className={'B-ui-components_description ' + descriptionClassName}
-            >
-              {item.description}
-            </span>
-          </div>
-        ) : (
-          titleElement
-        )}
+      <div className="truncate">
+        <div className="flex">
+          <div className="B-ui-components_left-node">{item.leftNode}</div>
+          {item.description ? (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {titleElement}
+              <span
+                className={
+                  'B-ui-components_description ' + descriptionClassName
+                }
+              >
+                {item.description}
+              </span>
+            </div>
+          ) : (
+            titleElement
+          )}
+        </div>
       </div>
       <div className="flex flex-row">
         <span className="B-ui-components_right-node">{item.rightNode}</span>

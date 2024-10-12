@@ -194,7 +194,7 @@ export function WorkspaceSpan({
   return (
     <>
       <span className="font-normal flex" style={{ gap: '.25rem' }}>
-        <AlbumIcon width="16" height="16" />
+        <AlbumIcon width="24" height="24" />
         <span>Пространство</span>
         <span className="font-bold overflow-hidden text-ellipsis">
           {wsName}

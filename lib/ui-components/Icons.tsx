@@ -74,8 +74,8 @@ export function TerminalIcon(props: React.SVGProps<SVGSVGElement>) {
       className="w-6 h-6 text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={props.width || '24'}
+      height={props.height || '24'}
       fill="none"
       viewBox="0 0 24 24"
     >
@@ -108,11 +108,11 @@ export function InfobarIcon(props: React.SVGProps<SVGSVGElement>) {
 export function AlbumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="w-6 h-6 text-gray-800 dark:text-white"
+      className="text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={props.width || '24'}
+      height={props.height || '24'}
       fill="none"
       viewBox="0 0 24 24"
     >

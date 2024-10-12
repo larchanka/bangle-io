@@ -6,7 +6,7 @@ import { useNsmSliceDispatch } from '@bangle.io/bangle-store-context';
 import { CORE_OPERATIONS_NEW_WORKSPACE } from '@bangle.io/constants';
 import type { WorkspaceInfo } from '@bangle.io/shared-types';
 import { goToWorkspaceHome, nsmPageSlice } from '@bangle.io/slice-page';
-import { Button, CenteredBoxedPage } from '@bangle.io/ui-components';
+import { AlbumIcon, Button, CenteredBoxedPage } from '@bangle.io/ui-components';
 import { readAllWorkspacesInfo } from '@bangle.io/workspace-info';
 import { createWsName } from '@bangle.io/ws-path';
 
@@ -89,7 +89,7 @@ function RecentWorkspace({
           Пространства
         </h3>
       </div>
-      <ul className="my-2 ml-2 list-disc list-inside max-h-72 overflow-y-auto">
+      <div className="my-2 ml-2 max-h-72 overflow-y-auto">
         {workspaces
           .sort((a, b) => {
             if (a.name === lastWsName) {
@@ -104,14 +104,15 @@ function RecentWorkspace({
           })
           .map((r, i) => {
             return (
-              <li key={i}>
+              <div key={i}>
                 <button
                   role="link"
                   onClick={(e) => {
                     onClickWsName(r.name);
                   }}
-                  className="py-1 hover:underline"
+                  className="py-1 hover:underline flex items-center gap-1"
                 >
+                  <AlbumIcon width="16" height="16" />
                   <span>{r.name} </span>
                   {r.name === lastWsName && (
                     <span className="font-light italic text-colorNeutralTextSubdued">
@@ -119,10 +120,10 @@ function RecentWorkspace({
                     </span>
                   )}
                 </button>
-              </li>
+              </div>
             );
           })}
-      </ul>
+      </div>
     </div>
   );
 }
