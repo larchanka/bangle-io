@@ -67,7 +67,7 @@ export function BacklinkWidget() {
     >
       {!backlinkSearchResult || backlinkSearchResult.length === 0 ? (
         <span className="text-sm">
-          🐒 Ссылок не найдено
+          🐒 Упоминаний не найдено
           <br />
           <span className="font-light">
             Создайте ссылку на заметку, набрав{' '}

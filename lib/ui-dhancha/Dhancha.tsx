@@ -84,7 +84,7 @@ export function Dhancha({
 
       {widescreen && noteSidebar && (
         <aside
-          className="B-ui-dhancha_note-sidebar shrink-0 h-screen z-5 border-l-1 border-colorNeutralBorder"
+          className="B-ui-dhancha_note-sidebar shrink-0 h-screen z-5 border-l-1 border-colorNeutralBorder bg-colorBgLayerTop"
           style={{
             width: vars.misc.noteSidebarWidth,
           }}

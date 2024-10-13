@@ -36,6 +36,14 @@
   background-color: #efefef;
 }
 
+.note-sidebar-tab {
+  display: none;
+}
+
+.note-sidebar-tab-active {
+  display: block;
+}
+
 progress {
   height: 1.25rem;
   -webkit-appearance: none;

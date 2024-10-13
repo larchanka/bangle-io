@@ -48,7 +48,7 @@ const extension = Extension.create({
       {
         name: 'note-sidebar-widget::@bangle.io/inline-backlink',
         ReactComponent: BacklinkWidget,
-        title: 'Ссылки на заметку',
+        title: 'Упоминания',
       },
     ],
   },

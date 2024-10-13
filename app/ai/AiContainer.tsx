@@ -95,6 +95,7 @@ export function AiContainer() {
         role: 'system',
         content: `
           Ты – ассистент, который помогает пользователю генерировать тексты на русском языке, если не указан иной язык.
+          Ты получаешь контекст в markdown-формате, если не указан иное.
           Отвечай кратко в одном-двух предложениях, если не указано иное.
           Отвечай в markdown-формате, если не указано иное.
           Не повторяй контекст.
@@ -287,7 +288,7 @@ export function AiContainer() {
                   } mt-2`}
                   key={`k-${index}`}
                   style={{
-                    color: 'var(--BV-colorCautionSolidText)',
+                    color: 'var(--BV-colorNeutralText)',
                   }}
                 >
                   {message.role === 'assistant' && (
@@ -326,6 +327,7 @@ export function AiContainer() {
               color: 'black',
               borderBottomRightRadius: '0',
               height: 'auto',
+              minHeight: '4.25em',
             }}
             value={requestValue}
             onChange={(e: InputEvent) => setRequestValue(e.target?.value)}
