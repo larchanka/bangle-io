@@ -111,6 +111,7 @@ export function BacklinkNode({
         onClick={onClick}
         onHoverChange={updateIsHovered}
       />
+      123
       {isTooltipVisible && backlinksWsPath && (
         <LinkPreview
           disablePreview={disablePopup}
@@ -129,7 +130,7 @@ export const renderReactNodeView: RenderReactNodeView = {
     const { path, title } = nodeViewRenderArg.node.attrs;
 
     if (typeof path !== 'string') {
-      return <span>Invalid Path</span>;
+      return <span>Неверный путь</span>;
     }
 
     return (
