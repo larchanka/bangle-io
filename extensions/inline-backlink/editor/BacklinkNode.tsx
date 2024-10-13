@@ -111,7 +111,6 @@ export function BacklinkNode({
         onClick={onClick}
         onHoverChange={updateIsHovered}
       />
-      123
       {isTooltipVisible && backlinksWsPath && (
         <LinkPreview
           disablePreview={disablePopup}
